@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BasketDao">
+
+    <resultMap type="basket" id="basketMap">
+        <id column="bno" property="bno"/>
+        <result column="uno" property="uno"/>
+        <result column="pno" property="pno"/>
+        <result column="bcnt" property="bcnt"/>
+        <result column="sname" property="sname"/>
+        <result column="pname" property="pname"/>
+        <result column="bcdt" property="bcdt"/>
+    </resultMap>
+    
+  <insert id="insert" parameterType="basket">
+    insert into tmk_basket(bno, uno, pno, bcnt, sname, pname, bcdt)
+    values(#{bno}, #{uno}, #{pno}, #{bcnt}, #{sname}, #{pname}, #{bcdt})
+  </insert>
+
+    <select id="findAll" resultMap="basketMap" parameterType="string">
+    select 
+      b.bno, 
+      b.uno, 
+      b.pno, 
+      bcnt,
+      s.sname,
+      p.pname, 
+      bcdt
+    from 
+      tmk_basket b
+      join tmk_product p on p.pno = b.pno 
+      join tmk_store_info s on s.sno = p.sno
+    order by 
+      bno asc
+  </select>
+  
+      <select id="findByNo"
+            parameterType="int"
+            resultMap="basketMap">
+    select
+      bno, 
+      uno, 
+      pno, 
+      bcnt,
+      bcdt
+    from
+      tmk_basket
+    where bno = #{bno}
+  </select>
+  
+  <delete id="delete" parameterType="int">
+    delete from tmk_basket
+    where bno=#{bno}
+  </delete>
+</mapper>
+
+
+
+
+
+

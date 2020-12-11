@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="CouponDao">
+  
+  <resultMap type="coupon" id="couponMap">
+    <id column="mcuno"           property="mcuno"/>
+    <result column="uno"    property="uno"/>
+    <result column="cuno"    property="cuno"/>
+    <result column="mcudt"    property="mcudt"/>
+    <result column="mcu_status"    property="mcu_status"/>
+    
+  <association property="dis" javaType="discount">
+      <id column="dis_no"          property="cuno"/>
+      <result column="dis_name"    property="cuname"/>
+      <result column="dis_price"    property="cuprice"/>
+      <result column="dis_exp"    property="cuexp"/>
+      <result column="dis_int"    property="cuint"/>
+    </association>
+  </resultMap>
+  
+  
+  
+  <select id="findAll" resultMap="couponMap" parameterType="string">
+    select 
+      mc.mcuno,
+      mc.uno,
+      d.cuname dis_name,
+      d.cuprice dis_price,
+      d.cuexp dis_exp,
+      mc.mcudt,
+      d.cuint dis_int,
+      mc.mcu_status
+    from 
+      tmk_my_coupon mc
+      inner join tmk_discount d on mc.cuno = d.cuno
+      inner join tmk_user u on mc.uno = u.uno
+    order by 
+      mcuno asc
+  </select>
+  
+  
+  
+</mapper>
+
+
+
+
+
+

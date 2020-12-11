@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="DiscountDao">
+  
+  <resultMap type="discount" id="discountMap">
+    <id column="cuno"           property="cuno"/>
+    <result column="cuname"    property="cuname"/>
+    <result column="cuprice"    property="cuprice"/>
+    <result column="cuexp"    property="cuexp"/>
+    <result column="cuint"    property="cuint"/>
+  </resultMap>
+  
+  <insert id="insert" parameterType="discount">
+    insert into tmk_discount(cuname, cuprice, cuexp, cuint)
+    values(#{cuname}, #{cuprice}, #{cuexp}, #{cuint})
+  </insert>
+  
+  <select id="findByNo"
+            parameterType="int"
+            resultMap="discountMap">
+    select
+      cuno,
+      cuname,
+      cuprice,
+      cuexp,
+      cuint
+    from
+      tmk_discount 
+    where cuno = #{cuno}
+  </select>
+
+  <select id="findAll" resultMap="discountMap" parameterType="string">
+    select 
+      cuno,
+      cuname,
+      cuprice,
+      cuexp,
+      cuint
+    from 
+      tmk_discount 
+    order by 
+      cuno asc
+  </select>
+  
+  <delete id="delete" parameterType="int">
+    delete from tmk_discount 
+    where cuno=#{cuno}
+  </delete>
+  
+</mapper>
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="FAQDao">
+
+    <resultMap type="FAQ" id="faqMap">
+        <id column="scno" property="scno"/>
+        <result column="sctype" property="sctype"/>
+        <result column="sctitle" property="sctitle"/>
+        <result column="sccontent" property="sccontent"/>
+    </resultMap>
+    
+    <resultMap type="FAQ" id="faqTypeMap">
+    	<id column="sctype" property="sctype"/>
+        <result column="scno" property="scno"/>
+        <result column="sctitle" property="sctitle"/>
+        <result column="sccontent" property="sccontent"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="faqTypeMap" parameterType="int">
+    select
+      sctype,
+      scno,
+      sctitle,
+      sccontent
+    from
+      tmk_sc
+    where sctype = #{sctype}
+  </select>
+
+    <select id="findByNo" resultMap="faqMap" parameterType="int">
+	select
+	scno,
+	sctype,
+	sctitle,
+	sccontent
+	from
+	tmk_sc
+	where scno = #{scno}
+</select>
+
+</mapper>
+
+

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="RequestDao">
+
+    <resultMap type="Request" id="requestMap">
+        <id column="email" property="email"/>
+        <result column="qno" property="qno"/>
+        <result column="uno" property="uno"/>
+        <result column="name" property="name"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="col" property="col"/>
+        <result column="qtype" property="qtype"/>
+        <result column="qstatus" property="qstatus"/>
+    </resultMap>
+    
+    <resultMap type="Request" id="requestDetailMap">
+        <id column="qno" property="qno"/>
+        <result column="uno" property="uno"/>
+        <result column="name" property="name"/>
+        <result column="email" property="email"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="col" property="col"/>
+        <result column="qtype" property="qtype"/>
+        <result column="qstatus" property="qstatus"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="requestMap" parameterType="string">
+    select
+      qno,
+      u.uno uno,
+      u.name name,
+      u.email email,
+      title,
+      content,
+      col,
+      qtype,
+      qstatus
+    from
+      tmk_mtm m
+      JOIN tmk_user u ON u.uno = m.uno
+   WHERE email = #{email}
+  </select>
+  
+  <select id="findByNo" resultMap="requestDetailMap" parameterType="int">
+    select
+      qno,
+      u.uno uno,
+      u.name name,
+      u.email email,
+      title,
+      content,
+      col,
+      qtype,
+      qstatus
+    from
+      tmk_mtm m
+      JOIN tmk_user u ON u.uno = m.uno
+   WHERE m.qno = #{qno}
+  </select>
+  
+  <insert id="insert" parameterType="request">
+    INSERT INTO tmk_mtm(uno, title, content, qtype, qstatus)
+	VALUES(#{uno}, #{title}, #{content}, #{qtype}, 0)
+  </insert>
+
+</mapper>
+
+

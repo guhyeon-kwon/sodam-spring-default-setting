@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserDao">
+
+    <resultMap type="user" id="userMap">
+        <id column="uno" property="uno"/>
+        <result column="name" property="name"/>
+        <result column="email" property="email"/>
+        <result column="pwd" property="pwd"/>
+        <result column="pst" property="pst"/>
+        <result column="addr" property="addr"/>
+        <result column="det_addr" property="det_addr"/>
+        <result column="tel" property="tel"/>
+        <result column="birth" property="birth"/>
+        <result column="status" property="status"/>
+        <result column="auth" property="auth"/>
+        <result column="uphoto" property="uphoto"/>
+        <result column="rdt" property="rdt"/>
+
+    </resultMap>
+
+    <insert id="insert" parameterType="user">
+    insert into tmk_user(name, email, pwd, pst, addr, det_addr, tel, birth, status, auth, uphoto, rdt)
+    values(#{name}, #{email}, #{pwd}, #{pst}, #{addr}, #{det_addr}, #{tel}, #{birth}, #{status}, #{auth}, #{uphoto}, #{rdt})
+  </insert>
+
+    <select id="findByNo"
+            parameterType="int"
+            resultMap="userMap">
+    select
+	    uno,
+	    name,
+	    email,
+	    pwd,
+	    pst,
+	    addr,
+	    det_addr,
+	    tel,
+        birth,
+        status,
+        auth,
+        uphoto,
+        rdt
+    from
+      tmk_user
+    where uno = #{uno}
+  </select>
+  
+  <select id="findUser"
+            parameterType="string"
+            resultMap="userMap">
+    select
+      uno,
+      name,
+      email,
+      pwd,
+      tel,
+      uphoto,
+      rdt,
+      auth
+    from
+      tmk_user
+    where email = #{email} AND pwd = #{pwd}
+  </select>
+
+    <select id="findAll" resultMap="userMap" parameterType="string">
+    select 
+      u.uno, 
+      name, 
+      email, 
+      pwd, 
+      pst, 
+      addr,
+      det_addr,
+      tel,
+      birth,
+      status,
+      auth,
+      uphoto,
+      rdt
+    from 
+      tmk_user u
+    order by 
+      uno asc;
+  </select>
+
+    <delete id="delete" parameterType="int">
+    delete from tmk_user
+    where uno=#{uno}
+  </delete>
+  
+  
+
+  <update id="update" parameterType="user">
+    update tmk_user
+    <set>
+      
+      <if test="name != null">name = #{name},</if>
+      <if test="email != null">email = #{email},</if>
+      <if test="pwd != null">pwd = #{pwd},</if>
+      <if test="pst != null">pst = #{pst},</if>
+      <if test="addr != null">addr = #{addr},</if>
+      <if test="det_addr != null">det_addr = #{det_addr},</if>
+      <if test="tel != null">tel = #{tel},</if>
+      <if test="birth != null">birth = #{birth},</if>
+      <if test="status != null">status = #{status},</if>
+      <if test="auth != null">auth = #{auth}</if>
+      
+      
+     <!-- 
+      <if test="uphoto != null">uphoto = #{uphoto},</if> 
+      <if test="rdt != null"> rdt= #{rdt},</if>
+      
+      -->
+      
+      
+    </set>
+    where uno = #{uno}
+  </update>
+  
+  
+</mapper>
+
+
+
+
+
+

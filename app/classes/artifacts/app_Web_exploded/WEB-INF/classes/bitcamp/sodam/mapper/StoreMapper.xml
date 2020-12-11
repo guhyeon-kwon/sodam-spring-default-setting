@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="StoreDao">
+  
+  <resultMap type="store" id="storeMap">
+    <id column="sno"           property="sno"/>
+    <result column="uno"    property="uno"/>
+    <result column="sname"    property="sname"/>
+    <result column="sint"    property="sint"/>
+    <result column="stel"    property="stel"/>
+    <result column="saddr"    property="saddr"/>
+    <result column="s_det_addr"    property="s_det_addr"/>
+    <result column="dyesno"    property="dyesno"/>
+    <result column="sphoto"    property="sphoto"/>
+    <result column="edt"    property="edt"/>
+    <result column="sdt"    property="sdt"/>
+    <result column="scdt"    property="scdt"/>
+    
+  <association property="owner" javaType="user">
+      <id column="owner_no"          property="uno"/>
+      <result column="owner_name"    property="name"/>
+    </association>
+  </resultMap>
+  
+
+  <select id="findAll" resultMap="storeMap" parameterType="string">
+    select 
+      s.sno, 
+      sname, 
+      u.uno, 
+      sint, 
+      stel, 
+      saddr,
+      s_det_addr,
+      dyesno,
+      sphoto,
+      edt,
+      sdt,
+      scdt
+    from 
+      tmk_store_info s
+    join tmk_user u on s.uno = u.uno
+    order by 
+      s.sno asc
+  </select>
+  
+  <select id="findByNo"
+            parameterType="int"
+            resultMap="storeMap">
+    select
+      sno,    
+      s.uno,
+      u.name owner_name,
+      sname,
+      sint,
+      stel,
+      saddr,
+      s_det_addr,
+      dyesno,
+      sphoto,
+      edt,
+      sdt,
+      scdt
+    from
+      tmk_store_info s
+      join tmk_user u on s.uno = u.uno
+    where sno = #{sno}
+  </select>
+  
+  <insert id="insert" parameterType="store">
+    insert into tmk_store_info(uno, sname, sint, stel, saddr, s_det_addr, dyesno, sphoto, edt, sdt, scdt) 
+    values(#{uno}, #{sname}, #{sint}, #{stel}, #{saddr}, #{s_det_addr}, #{dyesno}, #{sphoto}, #{edt}, #{sdt}, #{scdt})
+  </insert>
+  
+    <delete id="delete" parameterType="int">
+    delete from tmk_store_info 
+    where sno=#{sno}
+  </delete>
+</mapper>
+
+
+
+
+
+
