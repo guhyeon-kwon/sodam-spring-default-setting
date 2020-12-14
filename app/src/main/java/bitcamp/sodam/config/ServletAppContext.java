@@ -16,6 +16,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import bitcamp.sodam.database.BasketMapper;
 import bitcamp.sodam.database.FAQMapper;
 import bitcamp.sodam.database.UserMapper;
 import bitcamp.sodam.interceptor.CheckLoginInterceptor;
@@ -124,6 +125,13 @@ public class ServletAppContext implements WebMvcConfigurer {
     @Bean
     public MapperFactoryBean<UserMapper> user_mapper(SqlSessionFactory factory) throws Exception{
         MapperFactoryBean<UserMapper> factoryBean = new MapperFactoryBean<>(UserMapper.class);
+        factoryBean.setSqlSessionFactory(factory);
+        return factoryBean;
+    }
+    
+    @Bean
+    public MapperFactoryBean<BasketMapper> basket_mapper(SqlSessionFactory factory) throws Exception{
+        MapperFactoryBean<BasketMapper> factoryBean = new MapperFactoryBean<>(BasketMapper.class);
         factoryBean.setSqlSessionFactory(factory);
         return factoryBean;
     }
