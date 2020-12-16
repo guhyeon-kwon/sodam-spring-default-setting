@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bootstrap": "^5.0.0-beta1",
+    "bootstrap-icons": "^1.2.1",
     "sweetalert2": "^10.12.3"
   },
   "devDependencies": {},

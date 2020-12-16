@@ -19,7 +19,13 @@ public class HomeController {
 	@Autowired
     FAQService faqService;
 
-    @GetMapping("/")
+	@GetMapping("/sample")
+    public String Sample(){
+        System.out.println("메인페이지");
+        return "sample";
+    }
+    
+	@GetMapping("/")
     public String Home(){
         System.out.println("메인페이지");
         return "index";
