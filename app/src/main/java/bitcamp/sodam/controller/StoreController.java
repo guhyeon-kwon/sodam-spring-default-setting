@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import bitcamp.sodam.beans.Store;
-import bitcamp.sodam.beans.User;
 import bitcamp.sodam.service.StoreService;
 
 @Controller
@@ -22,25 +21,19 @@ public class StoreController {
     public String StoreList(HttpServletRequest request, HttpServletResponse response, HttpSession session, Model model) {
         System.out.println("가게목록");
 
-//        User user = (User) session.getAttribute("loginUser");
-//        Store store = (Store) session.getAttribute("sno");
+        response.setContentType("text/html;charset=UTF-8");
+
+        response.setCharacterEncoding("UTF-8"); // 응답의 encoding을 utf-8로 변경
+
+        List<Store> list;
+        try {
+            list = storeService.list();
+            model.addAttribute("list", list);
+        } catch (Exception e) {
+            model.addAttribute("list", null);
+            e.printStackTrace();
+        }
         
-        
-//
-//        int sno = storeService.list();
-//
-//        response.setContentType("text/html;charset=UTF-8");
-//
-//        response.setCharacterEncoding("UTF-8"); // 응답의 encoding을 utf-8로 변경
-//
-//        List<Store> list;
-//        try {
-//            list = storeService.list(sno);
-//            model.addAttribute("list", list);
-//        } catch (Exception e) {
-//            model.addAttribute("list", null);
-//            e.printStackTrace();
-//        }
         return "store/storeList";
     }
 }
