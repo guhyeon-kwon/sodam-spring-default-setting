@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import bitcamp.sodam.beans.Store;
-import bitcamp.sodam.beans.User;
 import bitcamp.sodam.service.StoreService;
 
 @Controller
@@ -23,9 +22,9 @@ public class StoreController {
         System.out.println("가게목록");
 
 //        User user = (User) session.getAttribute("loginUser");
-        Store store = (Store) session.getAttribute("sno");
+//        Store store = (Store) session.getAttribute("sno");
 //
-        int sno = store.getSno();
+//        int no = user.getUno();
 
         response.setContentType("text/html;charset=UTF-8");
 
@@ -33,7 +32,7 @@ public class StoreController {
 
         List<Store> list;
         try {
-            list = storeService.list(sno);
+            list = storeService.list();
             model.addAttribute("list", list);
         } catch (Exception e) {
             model.addAttribute("list", null);
