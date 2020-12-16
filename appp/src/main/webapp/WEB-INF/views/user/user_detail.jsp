@@ -25,6 +25,7 @@
 			<th>이메일</th>
 			<th>이름</th>
 			<th>주소</th>
+			<th>상세주소</th>
 			<th>전화번호</th>
 			<th>가입일</th>
 		</tr>
@@ -32,6 +33,7 @@
 			<td>${userInfo.email}</td>
 			<td>${userInfo.name}</td>
 			<td>${userInfo.addr}</td>
+			<td>${userInfo.det_addr}</td>
 			<td>${userInfo.tel}</td>
 			<td>${userInfo.rdt}</td>
 		</tr>
