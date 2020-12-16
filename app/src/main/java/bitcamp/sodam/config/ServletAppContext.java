@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -150,6 +152,14 @@ public class ServletAppContext implements WebMvcConfigurer {
         MapperFactoryBean<StoreMapper> factoryBean = new MapperFactoryBean<>(StoreMapper.class);
         factoryBean.setSqlSessionFactory(factory);
         return factoryBean;
+    }
+    
+    // 파일 업로드를 위한 MultipartResolver객체 빈으로 등록
+    @Bean
+    public MultipartResolver multipartResolver() {
+
+       StandardServletMultipartResolver multipartResolver = new StandardServletMultipartResolver();
+       return multipartResolver;
     }
 
 }
