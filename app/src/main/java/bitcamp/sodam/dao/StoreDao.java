@@ -6,5 +6,5 @@ import bitcamp.sodam.beans.Store;
 
 @Repository
 public interface StoreDao {
-  List<Store> findStoreList(int sno) throws Exception;
+  List<Store> findStoreList() throws Exception;
 }

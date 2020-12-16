@@ -23,22 +23,24 @@ public class StoreController {
         System.out.println("가게목록");
 
 //        User user = (User) session.getAttribute("loginUser");
-        Store store = (Store) session.getAttribute("sno");
+//        Store store = (Store) session.getAttribute("sno");
+        
+        
 //
-        int sno = store.getSno();
-
-        response.setContentType("text/html;charset=UTF-8");
-
-        response.setCharacterEncoding("UTF-8"); // 응답의 encoding을 utf-8로 변경
-
-        List<Store> list;
-        try {
-            list = storeService.list(sno);
-            model.addAttribute("list", list);
-        } catch (Exception e) {
-            model.addAttribute("list", null);
-            e.printStackTrace();
-        }
+//        int sno = storeService.list();
+//
+//        response.setContentType("text/html;charset=UTF-8");
+//
+//        response.setCharacterEncoding("UTF-8"); // 응답의 encoding을 utf-8로 변경
+//
+//        List<Store> list;
+//        try {
+//            list = storeService.list(sno);
+//            model.addAttribute("list", list);
+//        } catch (Exception e) {
+//            model.addAttribute("list", null);
+//            e.printStackTrace();
+//        }
         return "store/storeList";
     }
 }

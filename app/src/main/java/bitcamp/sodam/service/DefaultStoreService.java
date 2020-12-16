@@ -13,8 +13,8 @@ public class DefaultStoreService implements StoreService{
     StoreDao storeDao;
 
     @Override
-    public List<Store> list(int sno) throws Exception {
-      List<Store> store = storeDao.findStoreList(sno);
+    public List<Store> list() throws Exception {
+      List<Store> store = storeDao.findStoreList();
       return store;
     }
   }

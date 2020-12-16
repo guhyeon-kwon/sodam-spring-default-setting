@@ -16,6 +16,7 @@ public class User {
 	private int auth;
 	private String uphoto;
 	private Date rdt;
+	private String uthum_photo;
 
 	public int getUno() {
 		return uno;
@@ -111,6 +112,14 @@ public class User {
 
 	public void setUphoto(String uphoto) {
 		this.uphoto = uphoto;
+	}
+	
+	public String getUthum_photo() {
+		return uthum_photo;
+	}
+
+	public void setUthum_photo(String uthum_photo) {
+		this.uthum_photo = uthum_photo;
 	}
 
 	public Date getRdt() {

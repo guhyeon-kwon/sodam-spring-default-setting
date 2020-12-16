@@ -19,7 +19,8 @@ public class StoreDaoImpl implements StoreDao {
 	private StoreMapper storeMapper;
 
 	@Override
-	public List<Store> findStoreList(int sno) throws Exception {
-		return storeMapper.findStoreList(sno);
+	public List<Store> findStoreList() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

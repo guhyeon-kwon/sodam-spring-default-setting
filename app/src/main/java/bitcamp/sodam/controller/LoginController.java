@@ -1,5 +1,6 @@
 package bitcamp.sodam.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLEncoder;
@@ -16,6 +17,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartRequest;
 
 import bitcamp.sodam.beans.User;
 import bitcamp.sodam.service.UserService;
@@ -25,6 +28,7 @@ public class LoginController {
 
 	@Autowired
 	UserService userService;
+
 
 	@GetMapping("/login")
 	public String LoginGet(@CookieValue(value = "rememberAccount", required = false) String email, Model model) {
@@ -93,7 +97,7 @@ public class LoginController {
 	}
 	
 	@PostMapping("/signUpPost")
-	public String signUpPost(User user, HttpServletResponse response) {
+	public String signUpPost(User user, HttpServletRequest request, HttpServletResponse response) throws IOException, Exception {
 		
 		response.setContentType("text/html; charset=UTF-8");
 		
