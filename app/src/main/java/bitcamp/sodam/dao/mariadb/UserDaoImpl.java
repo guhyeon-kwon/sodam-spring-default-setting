@@ -17,10 +17,5 @@ public class UserDaoImpl implements UserDao {
 	public User findUser(String email, String pwd) throws Exception {
 		return userMapper.findUser(email, pwd);
 	}
-
-	@Override
-	public void insert(User user) throws Exception {
-		userMapper.addUser(user);
-	}
 }
 
