@@ -14,7 +14,7 @@ import bitcamp.sodam.service.StoreService;
 import bitcamp.sodam.service.UserService;
 
 @Controller
-public class InsertStoreController {
+public class StoreInsertController {
 
 	@Autowired
 	StoreService storeService;

@@ -22,4 +22,9 @@ public class DefaultStoreService implements StoreService{
     public int insertStore(Store store) throws Exception {
       return storeDao.insertStore(store);
     }
+    
+    @Override
+    public int deleteStore(int sno) throws Exception {
+      return storeDao.deleteStore(sno);
+    }
   }

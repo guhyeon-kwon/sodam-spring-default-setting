@@ -26,4 +26,8 @@ public class StoreDaoImpl implements StoreDao {
 	public int insertStore(Store store) throws Exception {
 		return storeMapper.insertStore(store);
 	}
+	@Override
+	public int deleteStore(int sno) throws Exception {
+	return storeMapper.deleteStore(sno);
+	}
 }

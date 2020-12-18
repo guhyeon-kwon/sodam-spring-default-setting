@@ -1,6 +1,7 @@
 package bitcamp.sodam.database;
 
 import java.util.List;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import bitcamp.sodam.beans.Store;
@@ -16,4 +17,7 @@ public interface StoreMapper {
   @Insert("insert into tmk_store_info(uno, sname, sint, stel, saddr, s_det_addr, dyesno, sphoto, edt, sdt, scdt)"
       + "values(#{uno}, #{sname}, #{sint}, #{stel}, #{saddr}, #{s_det_addr}, #{dyesno}, #{sphoto}, #{edt}, #{sdt}, #{scdt})")
   int insertStore(Store store);
+  
+  @Delete("delete from tmk_store_info where sno=#{sno}")
+  int deleteStore(int sno);
 }
