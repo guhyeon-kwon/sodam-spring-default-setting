@@ -1,36 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="UTF-8"%>
-<div class="header">
-        <div class="header__top">
-          <p>소담소담</p>
-        </div>
-        <div class="header__bottom">
-          <div class="header__logo">
-            <img src="./resources/img/logo.svg" alt="">
-        </div>
-        <div class="search">
-            <input type="text" placeholder="검색" />
-        </div>
-        <div class="user">
-            <div id="user__info" class="user__info">
-              <span class="user__info__img">
-                <img src="https://post-phinf.pstatic.net/MjAxODA0MzBfMTY5/MDAxNTI1MDE5OTA0NjAx.-h3SSyD7m9gBspgvKuiVTZEvPWVUPtiVZCIJY9eZpNUg.EtLjPli-XG7j2u04et5TLijx0J8HfRYniUZJkQzx0oAg.JPEG/mug_obj_144871269398392989.jpg?type=w1200" alt="Profile Picture" class="img-responsive" />
-              </span>
-              <span class="user__info__name">
-                <span class="first">구현</span>
-              </span>
-            </div>
-            <div class='dropdown-wrapper' id='dropdownWrapper' style='width: 256px'>
-              <div class='dropdown-profile-details'>
-                <span class='dropdown-profile-details--name'>권구현</span>
-                <span class='dropdown-profile-details--email'>test123@gmail.com</span>
-              </div>
-              <div class='dropdown-links'>
-              	<a href="/login">로그인</a>
-                <a href='/logout'>로그아웃</a>
-                <a href='/user_detail'>마이페이지</a>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
+<nav class="navbar nav-header navbar-expand-xl">
+		<a href="#" class="navbar-title"><i class="fa fa-cube"></i>소담<b>소담</b></a>
+	</nav>
+
+	<nav class="navbar navbar-expand-xl">
+		<a href="#" class="navbar-brand"><i class="fa fa-cube"></i>소담<b>소담</b></a>
+		<button type="button" class="navbar-toggler" data-toggle="collapse"
+			data-target="#navbarCollapse">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<!-- Collection of nav links, forms, and other content for toggling -->
+		<div id="navbarCollapse"
+			class="collapse navbar-collapse justify-content-start">
+			<form class="navbar-form form-inline">
+				<div class="input-group search-box">
+					<input type="text" id="search" class="form-control"
+						placeholder="검색어를 입력하세요"> <span class="input-group-addon"><i
+						class="material-icons">&#xE8B6;</i></span>
+				</div>
+			</form>
+			<div class="navbar-nav ml-auto">
+				<div class="nav-item dropdown">
+					<a href="#" data-toggle="dropdown"
+						class="nav-item nav-link dropdown-toggle user-action"><img
+						src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg"
+						class="avatar" alt="Avatar"> 권구현 <b class="caret"></b></a>
+					<div class="dropdown-menu">
+						<a href="/user_detail" class="dropdown-item"><i class="fa fa-user-o"></i>
+							마이페이지</a> <a href="/login" class="dropdown-item"><i
+							class="fa fa-calendar-o"></i> 로그인</a> <a href="/center"
+							class="dropdown-item"><i class="fa fa-sliders"></i> 고객센터</a>
+						<div class="divider dropdown-divider"></div>
+						<a href="/logout" class="dropdown-item"><i class="material-icons">&#xE8AC;</i>
+							로그아웃</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
