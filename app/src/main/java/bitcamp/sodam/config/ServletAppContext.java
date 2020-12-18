@@ -15,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
 import bitcamp.sodam.database.BasketMapper;
 import bitcamp.sodam.database.FAQMapper;
 import bitcamp.sodam.database.StoreMapper;
@@ -81,11 +82,6 @@ public class ServletAppContext implements WebMvcConfigurer {
 
     // 데이터베이스 접속 정보 관리
     // 접속정보를 셋팅하고 정보를 담은 객체를 리턴하는 메서드
-    // 커넥션 풀 역할을 한다. 어플리케이션은 데이터소스를 통하여 커넥션을 가져오고 반납하는 작업을 수행한다.
-    // 즉, 데이터소스는 일정한 규격으로 커넥션을 관리하도록 도와주는 구현체이며
-    // BasicDataSource는 아파치에서 제공하는 데이터소스이다.
-    // 간단하게 BasicDataSource는 데이터베이스 접속정보를 가지고있는 객체이고 DB에 접속할때마다
-    // 해당 객체의 접속정보를 확인하여 DB에 접속하고 결과를 받아온다고 생각하면 된다.
     @Bean
     public BasicDataSource dataSource(){
         // BasicDataSource : 아파치에서 제공하는 DB 연결 클래스
@@ -103,8 +99,6 @@ public class ServletAppContext implements WebMvcConfigurer {
     @Bean
     // BasicDataSource가 매개변수로 자동 주입된다.
     // SqlSessionFactory : 데이터베이스와의 연결과 SQL의 실행에 대한 모든 것을 가진 객체
-    // 이 객체가 위에서 생성한 DataSource 객체를 참조하여 Mybatis와 MySql 서버를 연동시켜준다.
-    // 빈으로 등록되어있기 때문에 서버가 구동될때 위에서 생성된 DataSource객체가 자동으로 주입된다.
     public SqlSessionFactory factory(BasicDataSource source) throws Exception {
         // SqlSessionFactoryBean : SqlSessionFactory를 만들기 위한 클래스
         // SqlSessionFactoryBean 객체를 만들고 DataSource를 주입한뒤
@@ -120,9 +114,7 @@ public class ServletAppContext implements WebMvcConfigurer {
 
     // 쿼리문 실행을 위한 객체
     // 여기서 mapper(쿼리문)와 데이터베이스 연결을 관리하는 factory를 받아서 DB에 Sql문을 날리는 객체를 만든다.(mapper마다 하나씩 만들어줘야함)
-    // MapperFactoryBean : proxy factory를 제공하는 객체로서 받아온 Mapper를 일관된 형식으로 가공해준다.
-    // 즉, 개발자가 임의로 작성한 mapper를 MapperFactoryBean이 받아와 연결된 DB와 적합한 형태의 mapper로 가공하여 리턴해주는것이다.
-    // 이곳에 Mapper 클래스를 등록해두면 해당 Mapper 클래스의 메서드가 호출될때마다 자동으로 SqlSessionFactory를 이용하여 DB에 쿼리를 보내고 결과값을 받아온다. 
+    
     //FAQ Mapper
     @Bean
     public MapperFactoryBean<FAQMapper> faq_mapper(SqlSessionFactory factory) throws Exception{
@@ -144,7 +136,7 @@ public class ServletAppContext implements WebMvcConfigurer {
         factoryBean.setSqlSessionFactory(factory);
         return factoryBean;
     }
-
+    
     @Bean
     public MapperFactoryBean<StoreMapper> store_mapper(SqlSessionFactory factory) throws Exception{
         MapperFactoryBean<StoreMapper> factoryBean = new MapperFactoryBean<>(StoreMapper.class);

@@ -27,7 +27,6 @@ public class FAQDaoImpl implements FAQDao {
 
 	@Override
 	public FAQ findByNo(int no) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return faqMapper.findByNo(no);
 	}
 }

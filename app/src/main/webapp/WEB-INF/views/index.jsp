@@ -1,7 +1,5 @@
-
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -22,18 +20,19 @@
 <body>
 	
 	<jsp:include page="./include/header.jsp"></jsp:include>
-
-	<nav class="category__menu">
+	
+	<div class="category__box">
 		<div class="container category__container">
-			<a href="#" class="nav-item nav-link active"><span>수산물</span></a>
-			<a href="#" class="nav-item nav-link"><span>야채</span></a>
-			<a href="#" class="nav-item nav-link"><span>청과물</span></a>
-			<a href="#" class="nav-item nav-link"><span>빵/간식</span></a>
-			<a href="#" class="nav-item nav-link"><span>건강식</span></a>
-			<a href="#" class="nav-item nav-link"><span>육류</span></a>
-			<a href="#" class="nav-item nav-link"><span>반찬</span></a>
+			<a href="#" class="nav-item nav-link active"><span>수산물</span></a> <a
+			href="#" class="nav-item nav-link"><span>야채</span></a> <a href="#"
+			class="nav-item nav-link"><span>청과물</span></a> <a href="#"
+			class="nav-item nav-link"><span>빵/간식</span></a> <a href="#"
+			class="nav-item nav-link"><span>건강식</span></a> <a href="#"
+			class="nav-item nav-link"><span>육류</span></a> <a href="#"
+			class="nav-item nav-link"><span>반찬</span></a>
 		</div>
-	</nav>
+	</div>
+
 
 	<div class='main__contents'>
 		<div class="container main-title">
@@ -44,7 +43,8 @@
 		</div>
 
 	</div>
-	
+
+
 	<jsp:include page="./include/footer.jsp"></jsp:include>
 
 </body>

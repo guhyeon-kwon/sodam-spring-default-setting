@@ -16,7 +16,6 @@
 			<h2 class="form-signin-heading">소담소담</h2>
 			<input type="text" class="form-control" name="email" value="${email}" placeholder="이메일" required="" autofocus="" />
 			<input type="password" class="form-control" name="pwd" placeholder="비밀번호" required="" />
-			<c:set var="email" value="${email}" />
 			<c:choose>
 			    <c:when test="${email eq null}">
 			    	<label class="checkbox">

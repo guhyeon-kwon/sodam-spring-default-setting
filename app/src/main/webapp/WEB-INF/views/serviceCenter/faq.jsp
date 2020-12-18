@@ -39,7 +39,7 @@
                     <div class="card-body">
                       <h5 class="card-title">${obj.sctitle}</h5>
                       <p class="card-text">${obj.sccontent}</p>
-                      <a href="/faqdetail?no=${obj.scno}" class="card-link">자세히 알아보기</a>
+                      <a href="/faq_detail?no=${obj.scno}" class="card-link">자세히 알아보기</a>
                     </div>
                  	</div>
               	</div>

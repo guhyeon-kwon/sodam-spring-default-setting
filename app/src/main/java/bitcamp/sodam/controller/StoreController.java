@@ -21,11 +21,6 @@ public class StoreController {
     public String StoreList(HttpServletRequest request, HttpServletResponse response, HttpSession session, Model model) {
         System.out.println("가게목록");
 
-//        User user = (User) session.getAttribute("loginUser");
-//        Store store = (Store) session.getAttribute("sno");
-//
-//        int no = user.getUno();
-
         response.setContentType("text/html;charset=UTF-8");
 
         response.setCharacterEncoding("UTF-8"); // 응답의 encoding을 utf-8로 변경
@@ -38,6 +33,7 @@ public class StoreController {
             model.addAttribute("list", null);
             e.printStackTrace();
         }
+        
         return "store/storeList";
     }
 }
