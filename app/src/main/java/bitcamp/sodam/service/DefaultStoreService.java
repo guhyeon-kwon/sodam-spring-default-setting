@@ -17,4 +17,9 @@ public class DefaultStoreService implements StoreService{
       List<Store> store = storeDao.findStoreList();
       return store;
     }
+    
+    @Override
+    public int insertStore(Store store) throws Exception {
+      return storeDao.insertStore(store);
+    }
   }

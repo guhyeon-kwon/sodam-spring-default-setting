@@ -8,4 +8,7 @@ import bitcamp.sodam.beans.User;
 public interface UserMapper {
     @Select("select uno, name, email, pwd, tel, uphoto, rdt, auth from tmk_user where email = #{email} AND pwd = #{pwd}")
     User findUser(@Param("email")String email, @Param("pwd")String pwd);
+    
+    @Select("select uno, name, email, pwd, tel, uphoto, rdt, auth from tmk_user where email = #{email} AND pwd = #{pwd}")
+    User findNo(@Param("uno")int uno);
 }

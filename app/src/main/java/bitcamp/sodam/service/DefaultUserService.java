@@ -18,4 +18,9 @@ public class DefaultUserService implements UserService {
 		return user;
 	}
 
+	@Override
+	public User get(int uno) throws Exception {
+	  User user = userDao.findByNo(uno);
+	return user;
+	}
 }
