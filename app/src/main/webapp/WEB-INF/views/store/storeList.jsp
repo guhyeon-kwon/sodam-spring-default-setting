@@ -22,9 +22,10 @@
           <li><a href="#">수산물</a></li>          
         </ul>
       </div>
+      <button onClick=location.href='storeInsert'>가게등록</button>
       <div class="store-table">
 	<table>
-		<caption>가게 목록</caption>
+		<h2>가게 목록</h2>
 		<thead>
 			<tr>
 				<th>가게번호</th>
@@ -38,6 +39,7 @@
 				<th>가게사진</th>
 				<th>종료영업시간 ~ 시작영업시간</th>
 				<th>생성일</th>
+				<th></th>
 			</tr>
 		</thead>
 
@@ -55,6 +57,7 @@
 					<td>${post.sphoto}</td>
 					<td>${post.edt}~ ${post.sdt}</td>
 					<td>${post.scdt}</td>
+					<td><button onClick=location.href='storeDelete'>가게삭제</button></td>
 				</tr>
 			</c:forEach>
 	   </div>
