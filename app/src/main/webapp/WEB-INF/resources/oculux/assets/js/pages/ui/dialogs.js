@@ -162,7 +162,7 @@ function showCategoryEdit() {
 		
 		$.post("/categoryAdd", 
 		{
-		    id:'1'
+		    name:inputValue
 		});
 		
         swal("추가되었습니다!", "추가된 카테고리명: " + inputValue, "success");

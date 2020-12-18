@@ -24,5 +24,15 @@ public class DefaultCategoryService implements CategoryService {
 		List<Category> category = categoryDao.findAll();
 		return category;
 	}
+
+	@Override
+	public void add(String name) throws Exception {
+		categoryDao.insert(name);
+	}
+
+	@Override
+	public void delete(int no) throws Exception {
+		categoryDao.delete(no);
+	}
 	
 }

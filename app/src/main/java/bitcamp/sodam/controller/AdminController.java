@@ -43,8 +43,23 @@ public class AdminController {
 	}
 	
 	@PostMapping("/categoryAdd")
-	public void CategoryAdd(HttpServletRequest request, HttpServletResponse response, Model model) {
+	public void CategoryAdd(HttpServletRequest request) {
 		System.out.println("어드민 카테고리 추가");
-		System.out.println(request.getParameter("id"));
+		try {
+			categoryService.add(request.getParameter("name"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@PostMapping("/categoryDelete")
+	public void CategoryDelete(HttpServletRequest request) {
+		System.out.println("어드민 카테고리 삭제");
+		try {
+			System.out.println(request.getParameter("no"));
+//			categoryService.delete(Integer.parseInt(request.getParameter("no")));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

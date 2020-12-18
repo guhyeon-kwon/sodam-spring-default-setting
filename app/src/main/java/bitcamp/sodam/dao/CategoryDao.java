@@ -15,5 +15,13 @@ public class CategoryDao {
 	
 	public List<Category> findAll() throws Exception{
 	  return categoryMapper.findAll();
-  }
+	}
+	
+	public void insert(String ctname) throws Exception{
+		categoryMapper.insert(ctname);
+	}
+	
+	public void delete(int ctno) throws Exception{
+		categoryMapper.delete(ctno);
+	}
 }
