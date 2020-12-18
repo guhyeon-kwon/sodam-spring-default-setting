@@ -15,5 +15,5 @@ public interface StoreMapper {
   
   @Insert("insert into tmk_store_info(uno, sname, sint, stel, saddr, s_det_addr, dyesno, sphoto, edt, sdt, scdt)"
       + "values(#{uno}, #{sname}, #{sint}, #{stel}, #{saddr}, #{s_det_addr}, #{dyesno}, #{sphoto}, #{edt}, #{sdt}, #{scdt})")
-  int insertStore();
+  int insertStore(Store store);
 }

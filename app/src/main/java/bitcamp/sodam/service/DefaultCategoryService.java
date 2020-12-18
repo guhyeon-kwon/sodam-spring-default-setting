@@ -1,0 +1,28 @@
+package bitcamp.sodam.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import bitcamp.sodam.beans.Basket;
+import bitcamp.sodam.beans.Category;
+import bitcamp.sodam.beans.FAQ;
+import bitcamp.sodam.beans.User;
+import bitcamp.sodam.dao.BasketDao;
+import bitcamp.sodam.dao.CategoryDao;
+import bitcamp.sodam.dao.FAQDao;
+
+@Service
+public class DefaultCategoryService implements CategoryService {
+
+	@Autowired
+	CategoryDao categoryDao;
+
+	@Override
+	public List<Category> list() throws Exception {
+		List<Category> category = categoryDao.findAll();
+		return category;
+	}
+	
+}

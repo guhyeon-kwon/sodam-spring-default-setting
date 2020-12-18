@@ -22,9 +22,8 @@ public class StoreDaoImpl implements StoreDao {
 	public List<Store> findStoreList() throws Exception {
 		return storeMapper.findStoreList();
 	}
-	
 	@Override
-	public int insert(Store store) throws Exception {
-	return storeMapper.insertStore();
+	public int insertStore(Store store) throws Exception {
+		return storeMapper.insertStore(store);
 	}
 }

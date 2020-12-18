@@ -17,6 +17,7 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import bitcamp.sodam.database.BasketMapper;
+import bitcamp.sodam.database.CategoryMapper;
 import bitcamp.sodam.database.FAQMapper;
 import bitcamp.sodam.database.StoreMapper;
 import bitcamp.sodam.database.UserMapper;
@@ -140,6 +141,13 @@ public class ServletAppContext implements WebMvcConfigurer {
     @Bean
     public MapperFactoryBean<StoreMapper> store_mapper(SqlSessionFactory factory) throws Exception{
         MapperFactoryBean<StoreMapper> factoryBean = new MapperFactoryBean<>(StoreMapper.class);
+        factoryBean.setSqlSessionFactory(factory);
+        return factoryBean;
+    }
+    
+    @Bean
+    public MapperFactoryBean<CategoryMapper> category_mapper(SqlSessionFactory factory) throws Exception{
+        MapperFactoryBean<CategoryMapper> factoryBean = new MapperFactoryBean<>(CategoryMapper.class);
         factoryBean.setSqlSessionFactory(factory);
         return factoryBean;
     }

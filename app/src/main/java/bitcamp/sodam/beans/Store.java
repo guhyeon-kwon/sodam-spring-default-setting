@@ -14,7 +14,7 @@ public class Store {
   private String sphoto;
   private String edt;
   private String sdt;
-  private Date scdt;
+  private String scdt;
   private User owner;
 
 public int getSno() {
@@ -105,13 +105,6 @@ public int getSno() {
       this.sdt = sdt;
   }
 
-  public Date getScdt() {
-      return scdt;
-  }
-
-  public void setScdt(Date scdt) {
-      this.scdt = scdt;
-  }
 
   public User getOwner() {
       return owner;
@@ -120,5 +113,15 @@ public int getSno() {
     public void setOwner(User owner) {
       this.owner = owner;
     }
+
+	public String getScdt() {
+		return scdt;
+	}
+
+	public void setScdt(String scdt) {
+		this.scdt = scdt;
+	}
+    
+    
 
 }

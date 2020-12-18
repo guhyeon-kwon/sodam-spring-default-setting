@@ -31,6 +31,9 @@ $(function () {
         else if (type === 'ajax-loader') {
             showAjaxLoaderMessage();
         }
+		else if (type === 'edit-category') {
+            showCategoryEdit();
+        }
     });
 });
 
@@ -63,20 +66,18 @@ function showConfirmMessage() {
 
 function showCancelMessage() {
     swal({
-        title: "Are you sure?",
-        text: "You will not be able to recover this imaginary file!",
+        title: "정말 삭제할까요?",
+        text: "한번 삭제하면 복구할 수 없습니다!",
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#dc3545",
-        confirmButtonText: "Yes, delete it!",
-        cancelButtonText: "No, cancel plx!",
+        confirmButtonText: "네",
+        cancelButtonText: "아니요",
         closeOnConfirm: false,
-        closeOnCancel: false
+        closeOnCancel: true
     }, function (isConfirm) {
         if (isConfirm) {
-            swal("Deleted!", "Your imaginary file has been deleted.", "success");
-        } else {
-            swal("Cancelled", "Your imaginary file is safe :)", "error");
+            swal("삭제 되었습니다!", "", "success");
         }
     });
 }
@@ -136,5 +137,34 @@ function showAjaxLoaderMessage() {
         setTimeout(function () {
             swal("Ajax request finished!");
         }, 2000);
+    });
+}
+
+function showCategoryEdit() {
+    swal({
+        title: "카테고리 추가",
+        text: "추가할 카테고리명을 입력해주세요.",
+        type: "input",
+        showCancelButton: true,
+        closeOnConfirm: false,
+		confirmButtonText: "추가하기",
+		confirmButtonColor: "#10ac84",
+        cancelButtonText: "취소하기",
+        animation: "slide-from-top",
+        inputPlaceholder: "원하는 이름을 입력하세요"
+    }, function (inputValue) {
+        if (inputValue === false){
+			return false
+		}
+        if (inputValue === "") {
+            swal.showInputError("카테고리명을 입력해주세요!"); return false
+        }
+		
+		$.post("/categoryAdd", 
+		{
+		    id:'1'
+		});
+		
+        swal("추가되었습니다!", "추가된 카테고리명: " + inputValue, "success");
     });
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,24 +8,10 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<meta name="description" content="Oculux Bootstrap 4x admin is super flexible, powerful, clean &amp; modern responsive admin dashboard with unlimited possibilities.">
-<meta name="keywords" content="admin template, Oculux admin template, dashboard template, flat admin template, responsive admin template, web app, Light Dark version">
-<meta name="author" content="GetBootstrap, design by: puffintheme.com">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
-<!-- VENDOR CSS -->
-<link rel="stylesheet" href="oculux/assets/vendor/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="oculux/assets/vendor/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="oculux/assets/vendor/animate-css/vivify.min.css">
-<link rel="stylesheet" href="oculux/assets/vendor/c3/c3.min.css"/>
 
-<link rel="stylesheet" href="oculux/assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css">
-<link rel="stylesheet" href="oculux/assets/vendor/jquery-datatable/fixedeader/dataTables.fixedcolumns.bootstrap4.min.css">
-<link rel="stylesheet" href="oculux/assets/vendor/jquery-datatable/fixedeader/dataTables.fixedheader.bootstrap4.min.css">
-<link rel="stylesheet" href="oculux/assets/vendor/sweetalert/sweetalert.css"/>
 <!-- MAIN CSS -->
-<link rel="stylesheet" href="oculux/assets/css/site.min.css">
-
-
+<link href="css/admin_main.css" rel="stylesheet" type="text/css">
 
 </head>
 <body class="theme-cyan font-montserrat light_version theme-orange">
@@ -47,7 +34,7 @@
 
             <div class="navbar-left">
                 <div class="navbar-btn">
-                    <a href="index.html"><img src="oculux/assets/images/icon.svg" alt="Oculux Logo" class="img-fluid logo"></a>
+                    <a href="index.html"><img src="oculux/assets_vendor/images/icon.svg" alt="Oculux Logo" class="img-fluid logo"></a>
                     <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu fa fa-bars"></i></button>
                 </div>
                 <ul class="nav navbar-nav">
@@ -83,7 +70,7 @@
                             <li>
                                 <a href="javascript:void(0);">
                                     <div class="media">
-                                        <img class="media-object " src="oculux/assets/images/xs/avatar5.jpg" alt="">
+                                        <img class="media-object " src="oculux/assets_vendor/images/xs/avatar5.jpg" alt="">
                                         <div class="media-body">
                                             <span class="name">Louis Henry <small class="float-right text-muted">38min ago</small></span>
                                             <span class="message">Design bug fix</span>
@@ -94,7 +81,7 @@
                             <li>
                                 <a href="javascript:void(0);">
                                     <div class="media mb-0">
-                                        <img class="media-object " src="oculux/assets/images/xs/avatar2.jpg" alt="">
+                                        <img class="media-object " src="oculux/assets_vendor/images/xs/avatar2.jpg" alt="">
                                         <div class="media-body">
                                             <span class="name">Debra Stewart <small class="float-right text-muted">2hr ago</small></span>
                                             <span class="message">Fix Bug</span>
@@ -154,12 +141,12 @@
                             <i class="fa fa-language"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item pt-2 pb-2" href="#"><img src="oculux/assets/images/flag/us.svg " class="w20 mr-2 rounded-circle"> US English</a>
-                            <a class="dropdown-item pt-2 pb-2" href="#"><img src="oculux/assets/images/flag/gb.svg " class="w20 mr-2 rounded-circle"> UK English</a>
+                            <a class="dropdown-item pt-2 pb-2" href="#"><img src="oculux/assets_vendor/images/flag/us.svg " class="w20 mr-2 rounded-circle"> US English</a>
+                            <a class="dropdown-item pt-2 pb-2" href="#"><img src="oculux/assets_vendor/images/flag/gb.svg " class="w20 mr-2 rounded-circle"> UK English</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item pt-2 pb-2" href="#"><img src="oculux/assets/images/flag/russia.svg " class="w20 mr-2 rounded-circle"> Russian</a>
-                            <a class="dropdown-item pt-2 pb-2" href="#"><img src="oculux/assets/images/flag/arabia.svg " class="w20 mr-2 rounded-circle"> Arabic</a>
-                            <a class="dropdown-item pt-2 pb-2" href="#"><img src="oculux/assets/images/flag/france.svg " class="w20 mr-2 rounded-circle"> French</a>
+                            <a class="dropdown-item pt-2 pb-2" href="#"><img src="oculux/assets_vendor/images/flag/russia.svg " class="w20 mr-2 rounded-circle"> Russian</a>
+                            <a class="dropdown-item pt-2 pb-2" href="#"><img src="oculux/assets_vendor/images/flag/arabia.svg " class="w20 mr-2 rounded-circle"> Arabic</a>
+                            <a class="dropdown-item pt-2 pb-2" href="#"><img src="oculux/assets_vendor/images/flag/france.svg " class="w20 mr-2 rounded-circle"> French</a>
                         </div>
                     </li>
                 </ul>
@@ -215,7 +202,7 @@
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="../assets/images/xs/avatar2.jpg" data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
+                                <img src="oculux/assets_vendor/images/xs/avatar2.jpg" data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
                                 <div class="ml-3">
                                     <a href="javascript:void(0);" title="">Zoe Baker</a>
                                     <p class="mb-0">zoe.baker@example.com</p>
@@ -257,7 +244,7 @@
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="../assets/images/xs/avatar5.jpg" data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
+                                <img src="oculux/assets_vendor/images/xs/avatar5.jpg" data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
                                 <div class="ml-3">
                                     <a href="javascript:void(0);" title="">Brandon Smith</a>
                                     <p class="mb-0">Maria.gill@example.com</p>
@@ -271,7 +258,7 @@
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="../assets/images/xs/avatar6.jpg" data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
+                                <img src="oculux/assets_vendor/images/xs/avatar6.jpg" data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
                                 <div class="ml-3">
                                     <a href="javascript:void(0);" title="">Kevin Baker</a>
                                     <p class="mb-0">kevin.baker@example.com</p>
@@ -285,7 +272,7 @@
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="../assets/images/xs/avatar2.jpg" data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
+                                <img src="oculux/assets_vendor/images/xs/avatar2.jpg" data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
                                 <div class="ml-3">
                                     <a href="javascript:void(0);" title="">Zoe Baker</a>
                                     <p class="mb-0">zoe.baker@example.com</p>
@@ -398,7 +385,7 @@
                                 </div>
                             </li>
                             <li class="right">
-                                <img src="oculux/assets/images/xs/avatar1.jpg" class="rounded" alt="">
+                                <img src="oculux/assets_vendor/images/xs/avatar1.jpg" class="rounded" alt="">
                                 <div class="chat-info">
                                     <span class="message">Hi, Alizee<br> It is almost completed. I will send you an email later today.</span>
                                 </div>
@@ -410,7 +397,7 @@
                                 </div>
                             </li>
                             <li class="right">
-                                <img src="oculux/assets/images/xs/avatar1.jpg" class="rounded" alt="">
+                                <img src="oculux/assets_vendor/images/xs/avatar1.jpg" class="rounded" alt="">
                                 <div class="chat-info">
                                     <span class="message">Sure we'will have a blast today.</span>
                                 </div>
@@ -443,7 +430,7 @@
                         <li class="online">
                             <a href="javascript:void(0);">
                                 <div class="media">
-                                    <img class="media-object " src="oculux/assets/images/xs/avatar3.jpg" alt="">
+                                    <img class="media-object " src="oculux/assets_vendor/images/xs/avatar3.jpg" alt="">
                                     <div class="media-body">
                                         <span class="name">Marshall Nichols</span>
                                         <span class="message">online</span>
@@ -491,7 +478,7 @@
                         <li class="online">
                             <a href="javascript:void(0);">
                                 <div class="media">
-                                    <img class="media-object " src="oculux/assets/images/xs/avatar5.jpg" alt="">
+                                    <img class="media-object " src="oculux/assets_vendor/images/xs/avatar5.jpg" alt="">
                                     <div class="media-body">
                                         <span class="name">Debra Stewart</span>
                                         <span class="message">online</span>
@@ -503,7 +490,7 @@
                         <li class="offline">
                             <a href="javascript:void(0);">
                                 <div class="media">
-                                    <img class="media-object " src="oculux/assets/images/xs/avatar2.jpg" alt="">
+                                    <img class="media-object " src="oculux/assets_vendor/images/xs/avatar2.jpg" alt="">
                                     <div class="media-body">
                                         <span class="name">Lisa Garett</span>
                                         <span class="message">offline since Jan 18</span>
@@ -607,21 +594,20 @@
     </div>
     <div id="left-sidebar" class="sidebar">
         <div class="navbar-brand">
-            <a href="index.html"><img src="oculux/assets/images/icon.svg" alt="Oculux Logo" class="img-fluid logo"><span>소담소담</span></a>
+            <a href="index.html"><img src="oculux/assets_vendor/images/icon.svg" alt="Oculux Logo" class="img-fluid logo"><span>소담소담</span></a>
             <button type="button" class="btn-toggle-offcanvas btn btn-sm float-right"><i class="lnr lnr-menu icon-close"></i></button>
         </div>
         <div class="sidebar-scroll">
             <div class="user-account">
                 <div class="user_div">
-                    <img src="../assets/images/user.png" class="user-photo" alt="User Profile Picture">
+                    <img src="https://www.enewstoday.co.kr/news/photo/201803/1172038_293253_1045.png" class="user-photo" alt="User Profile Picture">
                 </div>
                 <div class="dropdown">
-                    <span>Welcome,</span>
-                    <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Louis Pierce</strong></a>
+                    <span>환영합니다,</span>
+                    <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>권구현</strong></a>
                     <ul class="dropdown-menu dropdown-menu-right account vivify flipInY">
-                        <li><a href="page-profile.html"><i class="icon-user"></i>My Profile</a></li>
-                        <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
-                        <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
+                        <li><a href="page-profile.html"><i class="icon-user"></i>마이페이지</a></li>
+                        <li><a href="javascript:void(0);"><i class="icon-settings"></i>설정</a></li>
                         <li class="divider"></li>
                         <li><a href="page-login.html"><i class="icon-power"></i>Logout</a></li>
                     </ul>
@@ -656,7 +642,7 @@
                         </nav>
                     </div>            
                     <div class="col-md-6 col-sm-12 text-right hidden-xs">
-                        <a href="javascript:void(0);" class="btn btn-sm btn-primary" title="">카테고리 추가</a>
+                        <a href="javascript:void(0);" class="btn btn-sm btn-primary js-sweetalert" data-type="edit-category" title="">카테고리 추가</a>
                     </div>
                 </div>
             </div>
@@ -674,15 +660,37 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>야채</td>
+                                    	<c:forEach var="item" items="${list}">
+                                    	<tr>
+                                            <td>${item.ctname}</td>
                                             <td>
-                                                <button type="button" class="btn btn-success mb-2" title="Save"><span class="sr-only">Save</span> <i class="fa fa-edit"></i></button>
-                                                <button type="button" class="btn btn-danger mb-2" title="Delete"><span class="sr-only">Delete</span> <i class="fa fa-trash-o"></i></button>
+                                            	<button type="button" class="btn btn-success mb-2" title="Save" value="${item.ctno}" data-toggle="modal" data-target="#exampleModalCenter"><span class="sr-only">Save</span> <i class="fa fa-edit"></i></button>
+                                                <button type="button" class="btn btn-danger mb-2 js-sweetalert" title="Delete" value="${item.ctno}" data-type="cancel"><span class="sr-only">Delete</span> <i class="fa fa-trash-o"></i></button>
                                             </td>
                                         </tr>
+                                    	</c:forEach>
+                                        
                                     </tbody>
                                 </table>
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	                                <div class="modal-dialog modal-dialog-centered" role="document">
+	                                    <div class="modal-content">
+	                                        <div class="modal-header">
+	                                            <h5 class="modal-title" id="exampleModalCenterTitle">카테고리 수정</h5>
+	                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                                            <span aria-hidden="true">&times;</span>
+	                                            </button>
+	                                        </div>
+	                                        <div class="modal-body">
+	                                            <p>폼 들어갈 자리</p>
+	                                        </div>
+	                                        <div class="modal-footer">
+	                                            <button type="button" class="btn btn-round btn-default" data-dismiss="modal">취소</button>
+	                                            <button type="button" class="btn btn-round btn-primary">수정</button>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
                             </div>
                         </div>
                     </div>
@@ -696,20 +704,6 @@
     </div>    
 </div>
 <!-- Javascript -->
-<script src="oculux/assets/bundles/libscripts.bundle.js"></script>
-<script src="oculux/assets/bundles/vendorscripts.bundle.js"></script>
-
-<script src="oculux/assets/bundles/c3.bundle.js"></script>
-<script src="oculux/assets/bundles/mainscripts.bundle.js"></script>
-<script src="oculux/assets/js/index.js"></script>
-
-<script src="oculux/assets/bundles/datatablescripts.bundle.js"></script>
-<script src="oculux/assets/vendor/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
-<script src="oculux/assets/vendor/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
-<script src="oculux/assets/vendor/jquery-datatable/buttons/buttons.colVis.min.js"></script>
-<script src="oculux/assets/vendor/jquery-datatable/buttons/buttons.html5.min.js"></script>
-<script src="oculux/assets/vendor/jquery-datatable/buttons/buttons.print.min.js"></script>
-<script src="oculux/assets/vendor/sweetalert/sweetalert.min.js"></script><!-- SweetAlert Plugin Js -->
-<script src="oculux/assets/js/pages/tables/jquery-datatable.js"></script>
+<script type="text/javascript" src="js/admin.js" charset="utf-8"></script>
 </body>
 </html>

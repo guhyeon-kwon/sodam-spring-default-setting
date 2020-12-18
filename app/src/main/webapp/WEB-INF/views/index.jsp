@@ -18,18 +18,18 @@
 
 </head>
 <body>
-	
+
 	<jsp:include page="./include/header.jsp"></jsp:include>
-	
+
 	<div class="category__box">
 		<div class="container category__container">
 			<a href="#" class="nav-item nav-link active"><span>수산물</span></a> <a
-			href="#" class="nav-item nav-link"><span>야채</span></a> <a href="#"
-			class="nav-item nav-link"><span>청과물</span></a> <a href="#"
-			class="nav-item nav-link"><span>빵/간식</span></a> <a href="#"
-			class="nav-item nav-link"><span>건강식</span></a> <a href="#"
-			class="nav-item nav-link"><span>육류</span></a> <a href="#"
-			class="nav-item nav-link"><span>반찬</span></a>
+				href="#" class="nav-item nav-link"><span>야채</span></a> <a href="#"
+				class="nav-item nav-link"><span>청과물</span></a> <a href="#"
+				class="nav-item nav-link"><span>빵/간식</span></a> <a href="#"
+				class="nav-item nav-link"><span>건강식</span></a> <a href="#"
+				class="nav-item nav-link"><span>육류</span></a> <a href="#"
+				class="nav-item nav-link"><span>반찬</span></a>
 		</div>
 	</div>
 
@@ -57,15 +57,16 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 <script>
-
-var typed2 = new Typed('#typed', {
-	strings: ['Delivery', 'Food', 'Daily necessity', 'Retail', 'Travel'],
-	typeSpeed: 50,
-	backSpeed: 30,
-	fadeOut: false,
-	smartBackspace: true,
-	cursorChar: '_',
-	loop: true
-  });
+	var typed2 = new Typed('#typed',
+			{
+				strings : [ 'Delivery', 'Food', 'Daily necessity', 'Retail',
+						'Travel' ],
+				typeSpeed : 50,
+				backSpeed : 30,
+				fadeOut : false,
+				smartBackspace : true,
+				cursorChar : '_',
+				loop : true
+			});
 </script>
 </html>
