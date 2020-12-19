@@ -34,5 +34,11 @@ public class DefaultCategoryService implements CategoryService {
 	public void delete(int no) throws Exception {
 		categoryDao.delete(no);
 	}
+
+	@Override
+	public void update(Category category) throws Exception {
+		categoryDao.update(category);
+		
+	}
 	
 }

@@ -8,4 +8,5 @@ public interface CategoryService {
 	List<Category> list() throws Exception;
 	void add(String name) throws Exception;
 	void delete(int no) throws Exception;
+	void update(Category category) throws Exception;
 }

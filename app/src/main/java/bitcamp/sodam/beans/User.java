@@ -15,6 +15,7 @@ public class User {
 	private int status;
 	private int auth;
 	private String uphoto;
+	private String uthum_photo;
 	private Date rdt;
 
 	public int getUno() {
@@ -121,4 +122,13 @@ public class User {
 		this.rdt = rdt;
 	}
 
+	public String getUthum_photo() {
+		return uthum_photo;
+	}
+
+	public void setUthum_photo(String uthum_photo) {
+		this.uthum_photo = uthum_photo;
+	}
+
+	
 }

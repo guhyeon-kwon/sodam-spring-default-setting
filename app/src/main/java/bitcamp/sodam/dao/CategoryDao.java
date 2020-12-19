@@ -24,4 +24,8 @@ public class CategoryDao {
 	public void delete(int ctno) throws Exception{
 		categoryMapper.delete(ctno);
 	}
+	
+	public void update(Category category) throws Exception{
+		categoryMapper.update(category);
+	}
 }

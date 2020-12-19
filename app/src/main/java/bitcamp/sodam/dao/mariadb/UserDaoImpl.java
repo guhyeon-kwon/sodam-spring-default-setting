@@ -1,5 +1,7 @@
 package bitcamp.sodam.dao.mariadb;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -21,6 +23,11 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public User findByNo(int uno) throws Exception {
 	  return userMapper.findNo(uno);
+	}
+
+	@Override
+	public List<User> findAll() throws Exception {
+		return userMapper.findAll();
 	}
 }
 

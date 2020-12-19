@@ -13,8 +13,9 @@ $(function () {
         else if (type === 'confirm') {
             showConfirmMessage();
         }
-        else if (type === 'cancel') {
-            showCancelMessage();
+        else if (type === 'delete') {
+			var value = $(this).attr('value');
+            showDeletelMessage(value);
         }
         else if (type === 'with-custom-icon') {
             showWithCustomIconMessage();
@@ -32,7 +33,12 @@ $(function () {
             showAjaxLoaderMessage();
         }
 		else if (type === 'edit-category') {
-            showCategoryEdit();
+            showCategoryAdd();
+        }
+		else if (type === 'update') {
+			var id = $(this).attr('value');
+			var name = $(this).attr('data-name');
+            showCategoryUpdate(id, name);
         }
     });
 });
@@ -64,7 +70,7 @@ function showConfirmMessage() {
     });
 }
 
-function showCancelMessage() {
+function showDeletelMessage(value) {
     swal({
         title: "정말 삭제할까요?",
         text: "한번 삭제하면 복구할 수 없습니다!",
@@ -77,6 +83,13 @@ function showCancelMessage() {
         closeOnCancel: true
     }, function (isConfirm) {
         if (isConfirm) {
+	
+			$.post("/categoryDelete", 
+			{
+			    no:value
+			});
+	
+			
             swal("삭제 되었습니다!", "", "success");
         }
     });
@@ -140,7 +153,7 @@ function showAjaxLoaderMessage() {
     });
 }
 
-function showCategoryEdit() {
+function showCategoryAdd() {
     swal({
         title: "카테고리 추가",
         text: "추가할 카테고리명을 입력해주세요.",
@@ -166,5 +179,40 @@ function showCategoryEdit() {
 		});
 		
         swal("추가되었습니다!", "추가된 카테고리명: " + inputValue, "success");
+    });
+}
+
+function showCategoryUpdate(id, name) {
+    swal({
+        title: "카테고리 수정",
+        text: "수정할 카테고리명을 입력해주세요.",
+        type: "input",
+        showCancelButton: true,
+        closeOnConfirm: false,
+		confirmButtonText: "수정하기",
+		confirmButtonColor: "#10ac84",
+        cancelButtonText: "취소하기",
+        animation: "slide-from-top",
+        inputPlaceholder: "원하는 이름을 입력하세요",
+		inputValue: name
+    }, function (inputValue) {
+	
+        if (inputValue === false){
+			return false
+		}
+        if (inputValue === "") {
+            swal.showInputError("카테고리명을 입력해주세요!"); return false
+        }
+		if (inputValue === name) {
+            swal.showInputError("변경하려는 이름이 현제 이름과 같습니다!"); return false
+        }
+		
+		$.post("/categoryUpdate", 
+		{
+		    id:id,
+			name:inputValue
+		});
+		
+        swal("수정되었습니다!", "변경전 -> " + name + " | 변경후 -> " + inputValue, "success");
     });
 }

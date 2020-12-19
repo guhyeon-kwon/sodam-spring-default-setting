@@ -616,12 +616,12 @@
             <nav id="left-sidebar-nav" class="sidebar-nav">
                 <ul id="main-menu" class="metismenu">
                     <li class="header">사이트 관리</li>
-                    <li class="active"><a href="index2.html"><i class="icon-speedometer"></i><span>카테고리</span></a></li>
+                    <li><a href="index2.html"><i class="icon-speedometer"></i><span>카테고리</span></a></li>
                     <li><a href="index3.html"><i class="icon-diamond"></i><span>공지사항</span></a></li>
                     <li><a href="index3.html"><i class="icon-diamond"></i><span>가게</span></a></li>
                     <li><a href="index3.html"><i class="icon-diamond"></i><span>FAQ</span></a></li>
                     <li class="header">고객 관리</li>
-                    <li><a href="app-inbox.html"><i class="icon-envelope"></i><span>사용자</span></a></li>
+                    <li class="active"><a href="app-inbox.html"><i class="icon-envelope"></i><span>사용자</span></a></li>
                     <li><a href="app-chat.html"><i class="icon-bubbles"></i><span>환불신청</span></a></li>
                     <li><a href="app-chat.html"><i class="icon-bubbles"></i><span>문의사항</span></a></li>
                 </ul>
@@ -642,7 +642,7 @@
                         </nav>
                     </div>            
                     <div class="col-md-6 col-sm-12 text-right hidden-xs">
-                        <a href="javascript:void(0);" class="btn btn-sm btn-primary js-sweetalert" data-type="edit-category" title="">카테고리 추가</a>
+                        <a href="javascript:void(0);" class="btn btn-sm btn-primary js-sweetalert" data-type="edit-category" title="">사용자 추가</a>
                     </div>
                 </div>
             </div>
@@ -650,33 +650,94 @@
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-hover js-basic-example dataTable table-custom spacing5">
-                                    <thead>
-                                        <tr>
-                                            <th class="col-9">카테고리명</th>
-                                            <th class="col-3"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    	<c:forEach var="item" items="${list}">
-                                    	<tr>
-                                            <td>${item.ctname}</td>
-                                            <td>
-                                            	<button type="button" class="btn btn-success mb-2 js-sweetalert" title="Save" value="${item.ctno}" data-name="${item.ctname}" data-type="update"><span class="sr-only">Save</span> <i class="fa fa-edit"></i></button>
-                                                <button type="button" class="btn btn-danger mb-2 js-sweetalert" title="Delete" value="${item.ctno}" data-type="delete"><span class="sr-only">Delete</span> <i class="fa fa-trash-o"></i></button>
-                                            </td>
-                                        </tr>
-                                    	</c:forEach>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="text-left">
+                            <button type="button" class="btn btn-sm mb-1 btn-filter bg-default" data-target="all">All</button>
+                            <button type="button" class="btn btn-sm mb-1 btn-filter bg-green" data-target="approved">Approved</button>
+                            <button type="button" class="btn btn-sm mb-1 btn-filter bg-orange" data-target="suspended">Suspended</button>
+                            <button type="button" class="btn btn-sm mb-1 btn-filter bg-azura" data-target="pending">Pending</button>
+                            <button type="button" class="btn btn-sm mb-1 btn-filter bg-blush" data-target="blocked">Blocked</button>
                         </div>
+                        <table class="table table-hover table-custom spacing8 mb-0">
+                            <tbody>
+                                <tr data-status="approved">
+                                    <td class="w60">
+                                        <img src="/oculux/assets_vendor/images/xs/avatar1.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 rounded">
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0);" title="">Project 1</a>
+                                        <p class="mb-0">Scott Ortega</p>
+                                    </td>
+                                    <td>
+                                        <span>Lorem Ipsum is dummy text of the and typesetting industry.</span>
+                                    </td>
+                                    <td>11,200</td>
+                                    <td>$83</td>
+                                    <td><strong>$22,520</strong></td>
+                                </tr>
+                                <tr data-status="suspended">
+                                    <td class="w60">
+                                        <img src="/oculux/assets_vendor/images/xs/avatar2.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 rounded">
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0);" title="">Project 2</a>
+                                        <p class="mb-0">Louis Little</p>
+                                    </td>
+                                    <td>
+                                        <span>Lorem Ipsum is simply text of the printing and typesetting industry.</span>
+                                    </td>
+                                    <td>11,200</td>
+                                    <td>$66</td>
+                                    <td><strong>$13,205</strong></td>
+                                </tr>
+                                <tr data-status="blocked">
+                                    <td class="w60">
+                                        <img src="/oculux/assets_vendor/images/xs/avatar3.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 rounded">
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0);" title="">Project 3</a>
+                                        <p class="mb-0">Mike</p>
+                                    </td>                                    
+                                    <td>
+                                        <span>Lorem is simply dummy text of the printing and typesetting industry.</span>
+                                    </td>
+                                    <td>12,080</td>
+                                    <td>$93</td>
+                                    <td><strong>$17,700</strong></td>
+                                </tr>
+                                <tr data-status="approved">
+                                    <td class="w60">
+                                        <img src="/oculux/assets_vendor/images/xs/avatar4.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 rounded">
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0);" title="">Project 4</a>
+                                        <p class="mb-0">Lori Kelley</p>
+                                    </td>
+                                    <td>
+                                        <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+                                    </td>
+                                    <td>18,200</td>
+                                    <td>$178</td>
+                                    <td><strong>$17,700</strong></td>
+                                </tr>
+                                <tr data-status="pending">
+                                    <td class="w60">
+                                        <img src="/oculux/assets_vendor/images/xs/avatar5.jpg" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 rounded">
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0);" title="">Project 5</a>
+                                        <p class="mb-0">David McCoy</p>
+                                    </td>
+                                    <td>
+                                        <span>Lorem Ipsum is simply dummy text of the printing and industry.</span>
+                                    </td>
+                                    <td>12,080</td>
+                                    <td>$93</td>
+                                    <td><strong>$17,700</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                
             </div>
 
             
