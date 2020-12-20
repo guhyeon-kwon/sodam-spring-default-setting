@@ -122,7 +122,6 @@
           </div>
     </div>
 	<jsp:include page="../include/footer.jsp"></jsp:include>
-	</main>
 </body>
 <script src="https://kit.fontawesome.com/d1fe297f63.js"
 	crossorigin="anonymous"></script>
