@@ -50,15 +50,13 @@
 							<p><input type="text" class="form-control text-center"
 							id="exampleFormControlInput1" placeholder="상호명"
 							style="width: 500px"></p>
-							<p><input type="text" class="form-control text-center"
-							id="exampleFormControlInput1" placeholder="상호명"
-							style="width: 500px"></p>
-							<p><input type="text" class="form-control text-center"
-							id="exampleFormControlInput1" placeholder="상호명"
-							style="width: 500px"></p>
+							<p><input type="file" style="width: 500px"></p>
+							<p><textarea class="form-control text-center"
+							id="exampleFormControlInput1" placeholder="상호명" style="width:500px"></textarea></p>
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 </form>
 		<div class="row justify-content-end">
