@@ -621,7 +621,7 @@
                     <li><a href="index3.html"><i class="icon-diamond"></i><span>가게</span></a></li>
                     <li><a href="index3.html"><i class="icon-diamond"></i><span>FAQ</span></a></li>
                     <li class="header">고객 관리</li>
-                    <li><a href="app-inbox.html"><i class="icon-envelope"></i><span>사용자</span></a></li>
+                    <li><a href="/admin/user"><i class="icon-envelope"></i><span>사용자</span></a></li>
                     <li><a href="app-chat.html"><i class="icon-bubbles"></i><span>환불신청</span></a></li>
                     <li><a href="app-chat.html"><i class="icon-bubbles"></i><span>문의사항</span></a></li>
                 </ul>
