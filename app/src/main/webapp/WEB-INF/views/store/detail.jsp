@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>가게 등록</h1>
-<form action='/store/add' method='post' accept-charset="UTF-8">
+<form action='/store/update' method='post' accept-charset="UTF-8">
 상호명: <input type='text' name='sname'><br>
 가게소개: <textarea name='sint' rows='10' cols='60'></textarea><br>
 전화번호: <input type='tel' name='stel'><br>

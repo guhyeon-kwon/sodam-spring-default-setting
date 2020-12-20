@@ -6,6 +6,29 @@ body{
   height: 100%;
 }
 
+body .card-body{
+	font-size:large;
+	font-weight:bold;
+	color:black;
+	text-align:center;	
+	padding-top:10px;
+}
+
+body .container_star {
+	padding:0px;
+}
+
+body .review-count {
+	font-size:x-small;
+	color:gray;
+	margin:0px;
+}
+
+body .tag-font{
+	font-color:white;
+	font-size:1px;
+	font-weight:bolder;
+}
 /* 카테고리 */
 
 .category{
@@ -64,6 +87,12 @@ main .bg-text p {
   font-size: 48px; 
   color: #ffffff; 
 }
+
+.checked {
+  color: orange;
+}
+
+
 
 
 /* 드롭다운 메뉴 */

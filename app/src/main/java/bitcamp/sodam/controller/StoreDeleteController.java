@@ -21,6 +21,7 @@ public class StoreDeleteController {
 	
 	@GetMapping("/storeDelete")
 	public String deleteStore(int sno, HttpSession session) throws Exception {
+		
 	  if (storeService.deleteStore(sno) == 0) {
 	    throw new Exception("해당하는 가게가 존재하지 않습니다.");
 	  }
