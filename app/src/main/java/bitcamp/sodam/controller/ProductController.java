@@ -11,10 +11,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ProductController {
 	
 	@GetMapping("/product_detail")
-	public String LoginGet(@CookieValue(value = "rememberAccount", required = false) String email, Model model, HttpServletResponse response) {
+	public String ProductDetail(HttpServletResponse response) {
 		
 		response.setContentType("text/html; charset=UTF-8");
 		
 		return "product/product_detail";
+	}
+	
+	@GetMapping("/product_list")
+	public String ProductList(HttpServletResponse response) {
+		
+		response.setContentType("text/html; charset=UTF-8");
+		
+		return "product/product_list";
 	}
 }

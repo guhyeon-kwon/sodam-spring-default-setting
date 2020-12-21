@@ -84,7 +84,7 @@ function showDeletelMessage(value) {
     }, function (isConfirm) {
         if (isConfirm) {
 	
-			$.post("/categoryDelete", 
+			$.post("/admin/categoryDelete", 
 			{
 			    no:value
 			});
@@ -172,8 +172,8 @@ function showCategoryAdd() {
         if (inputValue === "") {
             swal.showInputError("카테고리명을 입력해주세요!"); return false
         }
-		
-		$.post("/categoryAdd", 
+        
+		$.post("/admin/categoryAdd", 
 		{
 		    name:inputValue
 		});
@@ -207,7 +207,7 @@ function showCategoryUpdate(id, name) {
             swal.showInputError("변경하려는 이름이 현제 이름과 같습니다!"); return false
         }
 		
-		$.post("/categoryUpdate", 
+		$.post("/admin/categoryUpdate", 
 		{
 		    id:id,
 			name:inputValue

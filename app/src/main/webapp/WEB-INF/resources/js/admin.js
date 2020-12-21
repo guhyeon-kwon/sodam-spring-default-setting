@@ -15,7 +15,7 @@ document.write('<script src="/oculux/assets_vendor/vendor/sweetalert/sweetalert.
 document.write('<script src="/oculux/assets/js/pages/tables/jquery-datatable.js"></script>');
 
 document.write('<script src="/oculux/assets_vendor/vendor/jquery-steps/jquery.steps.js"></script>');
-document.write('<script src="/oculux/assets_vendor/vendor/dropify/js/dropify.js"></script>');
+document.write('<script src="/js/dropify.js"></script>');
 document.write('<script src="/oculux/assets/js/pages/forms/dropify.js"></script>');
 document.write('<script src="/oculux/assets/js/pages/forms/form-wizard.js"></script>');
 

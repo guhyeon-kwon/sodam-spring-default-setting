@@ -100,4 +100,15 @@ public class AdminController {
 		
 		return "admin/user";
 	}
+	
+	@GetMapping("/drop")
+	public String Drop(HttpServletRequest request, HttpServletResponse response, Model model) {
+		System.out.println("drop test");
+		
+		response.setContentType("text/html;charset=UTF-8");
+
+		response.setCharacterEncoding("UTF-8"); // 응답의 encoding을 utf-8로 변경
+		
+		return "admin/drop";
+	}
 }

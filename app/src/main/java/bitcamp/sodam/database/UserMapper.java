@@ -15,6 +15,6 @@ public interface UserMapper {
     @Select("select uno, name, email, pwd, tel, uphoto, rdt, auth from tmk_user where email = #{email} AND pwd = #{pwd}")
     User findNo(@Param("uno")int uno);
     
-    @Select("select uno, name, email, pwd, tel, uphoto, uthum_photo, rdt, auth from tmk_user")
+    @Select("select uno, name, email, pwd, tel, uphoto, uthum_photo, rdt, auth, addr from tmk_user")
     List<User> findAll();
 }
