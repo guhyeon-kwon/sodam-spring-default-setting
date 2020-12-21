@@ -1,6 +1,8 @@
 package bitcamp.sodam.config;
 
 import javax.servlet.Filter;
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration.Dynamic;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -90,5 +92,19 @@ public class SpringConfigClass extends AbstractAnnotationConfigDispatcherServlet
         CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter(); // 인코딩 설정을 위한 인코딩 객체 초기화
         encodingFilter.setEncoding("UTF-8"); // 인코딩 설정
         return new Filter[] {encodingFilter}; // 필터에 적용
+    }
+    
+    @Override
+    protected void customizeRegistration(Dynamic registration) {
+    	// TODO Auto-generated method stub
+    	super.customizeRegistration(registration);
+    	
+    	// 총 4개의 엘리먼트를 설정해준다.
+    	// 첫번째 : 클라이언트가 보낸 파일 데이터를 저장해놓는 임시파일의 경로를 정함(null 로 설정하면 톰켓에서 지정해놓은 임시 폴더를 지정한다.)
+    	// 두번째 : 업로드하는 파일의 최대 용량(바이트 단위, 52428800 => 50메가)
+    	// 세번째 : 파일 데이터를 포함한 전체 요청정보의 최대 용량(파일데이터 뿐만 아니라 사용자가 입력한 데이터의 용량까지 포함)
+    	// 네번째 : 파일의 임계값(0으로 지정하면 데이터를 받아서 알아서 저장하겠다는 의미) 
+    	MultipartConfigElement config1 = new MultipartConfigElement(null,52428800,524288000,0);
+    	registration.setMultipartConfig(config1);
     }
 }

@@ -2,6 +2,7 @@ package bitcamp.sodam.database;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -15,10 +16,9 @@ public interface UserMapper {
     @Select("select uno, name, email, pwd, tel, uphoto, rdt, auth from tmk_user where email = #{email} AND pwd = #{pwd}")
     User findNo(@Param("uno")int uno);
     
-<<<<<<< HEAD
     @Select("select uno, name, email, pwd, tel, uphoto, uthum_photo, rdt, auth, addr from tmk_user")
-=======
-    @Select("select uno, name, email, pwd, tel, uphoto, uthum_photo, rdt, auth, from tmk_user")
->>>>>>> 90aa2d74250db6adf77bf214231eb8842358ec35
     List<User> findAll();
+    
+    @Insert("insert into tmk_user(name, email, pwd, pst, addr, det_addr, tel, birth, status, auth, uphoto, uthum_photo) VALUES(#{name},#{email},#{pwd},#{pst},#{addr},#{det_addr},#{tel},#{birth},#{status},#{auth},#{uphoto},#{uthum_photo})")
+    void addUser(User user);
 }

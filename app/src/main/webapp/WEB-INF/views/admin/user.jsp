@@ -1,17 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
+
 <head>
-<title>Oculux | Home</title>
+<title>Oculux | Form Drag & Drop</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="description" content="Oculux Bootstrap 4x admin is super flexible, powerful, clean &amp; modern responsive admin dashboard with unlimited possibilities.">
+<meta name="author" content="GetBootstrap, design by: puffintheme.com">
 
-<!-- MAIN CSS -->
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<!-- VENDOR CSS -->
 <link rel="stylesheet" href="/oculux/assets_vendor/vendor/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="/oculux/assets_vendor/vendor/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="/oculux/assets_vendor/vendor/animate-css/vivify.min.css">
@@ -722,60 +724,68 @@
 										</button>
 									</div>
 									<div class="modal-body">
-										<form id="basic-form" method="post" novalidate>
+										<form id="user-form" method="post" action="/admin/user_add" enctype="multipart/form-data" novalidate>
 											<div class="form-group">
-												<label>이름</label> <input type="text" class="form-control"
-													required>
+												<label>이름</label>
+												<input type="text" class="form-control" name="name" required>
 											</div>
 											<div class="form-group">
-												<label>이메일</label> <input type="email" class="form-control"
-													required>
+												<label>이메일</label>
+												<input type="email" class="form-control" name="email" required>
 											</div>
 											<div class="form-group">
-												<label>비밀번호</label> <input type="password"
-													class="form-control" required>
+												<label>비밀번호</label>
+												<input type="password" class="form-control" name="pwd" required>
 											</div>
 											<div class="form-group">
-												<label>우편번호</label> <input type="text" class="form-control"
-													required>
+												<label>우편번호</label>
+												<input type="text" class="form-control" name="pst" required>
 											</div>
 											<div class="form-group">
-												<label>기본주소</label> <input type="text" class="form-control"
-													required>
+												<label>기본주소</label>
+												<input type="text" class="form-control" name="addr" required>
 											</div>
 											<div class="form-group">
 												<label>상세주소</label>
-												<textarea class="form-control" rows="5" cols="30" required></textarea>
+												<textarea class="form-control" rows="5" cols="30" name="det_addr" required></textarea>
 											</div>
 											<div class="form-group">
-												<label>전화번호</label> <input type="text" class="form-control"
-													required>
+												<label>전화번호</label>
+												<input type="text" class="form-control" name="tel" required>
 											</div>
 											<div class="form-group">
-												<label>생년월일</label> <input type="date" class="form-control"
-													required>
+												<label>생년월일</label>
+												<input type="date" class="form-control" name="birth" required>
 											</div>
 											<div class="form-group">
 												<div class="row clearfix">
 													<div class="col-lg-12 col-md-12">
-														<label>권한</label> <br /> <label class="fancy-radio">
-															<input type="radio" name="gender" value="male" required
-															data-parsley-errors-container="#error-radio"> <span><i></i>구매자</span>
-														</label> <label class="fancy-radio"> <input type="radio"
-															name="gender" value="female"> <span><i></i>판매자</span>
-														</label> <label class="fancy-radio"> <input type="radio"
-															name="gender" value="female"> <span><i></i>상담사</span>
-														</label> <label class="fancy-radio"> <input type="radio"
-															name="gender" value="female"> <span><i></i>관리자</span>
+														<label>권한</label> <br />
+														<label class="fancy-radio">
+															<input type="radio" name="auth" value="1" required data-parsley-errors-container="#error-radio">
+															<span><i></i>구매자</span>
+														</label>
+														<label class="fancy-radio">
+															<input type="radio" name="auth" value="2">
+															<span><i></i>판매자</span>
+														</label>
+														<label class="fancy-radio">
+															<input type="radio" name="auth" value="6">
+															<span><i></i>상담사</span>
+														</label>
+														<label class="fancy-radio">
+															<input type="radio" name="auth" value="9">
+															<span><i></i>관리자</span>
 														</label>
 														<p id="error-radio"></p>
 													</div>
 												</div>
 											</div>
 											<div class="form-group">
+												<label>프로필 사진</label>
 												<div class="card">
 													<div class="body">
-														<input type="file" class="dropify">
+														<input type="file" class="dropify" name="upload_image" accept="image/*">
 													</div>
 												</div>
 											</div>
@@ -784,7 +794,7 @@
 									<div class="modal-footer">
 										<button type="button" class="btn btn-round btn-default"
 											data-dismiss="modal">취소</button>
-										<button type="button" class="btn btn-round btn-primary">저장</button>
+										<button type="submit" class="btn btn-round btn-primary" form="user-form">저장</button>
 									</div>
 								</div>
 							</div>
@@ -832,7 +842,7 @@
 											</c:when>
 										</c:choose>
 										<tr data-status="${authid }">
-											<td class="w60"><img src="${item.uphoto }"
+											<td class="w60"><img src="/filepath/${item.uphoto }"
 												data-toggle="tooltip" data-placement="top"
 												title="Avatar Name" alt="Avatar" class="w35 rounded">
 											</td>
@@ -856,7 +866,16 @@
 			</div>
 		</div>
 	</div>
-	<!-- Javascript -->
-	<script type="text/javascript" src="/js/admin.js" charset="utf-8"></script>
+
+<!-- Javascript -->
+<script src="/oculux/assets/bundles/libscripts.bundle.js"></script>    
+<script src="/oculux/assets/bundles/vendorscripts.bundle.js"></script>
+
+<script src="/oculux/assets_vendor/vendor/dropify/js/dropify.js"></script>
+<script src="/oculux/assets/bundles/mainscripts.bundle.js"></script>
+<script src="/oculux/assets/js/pages/forms/dropify.js"></script>
+<script src="/oculux/assets/js/pages/tables/table-filter.js"></script>
 </body>
 </html>
+
+
