@@ -27,7 +27,7 @@
 						src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg"
 						class="avatar" alt="Avatar"> 권구현 <b class="caret"></b></a>
 					<div class="dropdown-menu">
-						<a href="/user_detail" class="dropdown-item"><i class="fa fa-user-o"></i>
+						<a href="/mypage" class="dropdown-item"><i class="fa fa-user-o"></i>
 							마이페이지</a> <a href="/login" class="dropdown-item"><i
 							class="fa fa-calendar-o"></i> 로그인</a> <a href="/center"
 							class="dropdown-item"><i class="fa fa-sliders"></i> 고객센터</a>
