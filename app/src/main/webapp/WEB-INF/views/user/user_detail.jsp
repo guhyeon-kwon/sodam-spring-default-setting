@@ -22,47 +22,53 @@
 <body>
 	<jsp:include page="../include/header.jsp"></jsp:include>
 		
-	<div class="container mt-5 ml-5" style="min-height: calc(100vh - 132px);">
-	<div class="col">
+	<div class="container mt-5" style="min-height: calc(100vh - 132px);">
+		<div class=“d-flex justify-content-center”>
+	<div class="col ">
 		<div class ="row-sm-2">	
 			<div class="row">
-				<div class="col-sm-2"></div>
-				<div class="col-sm-10">
-					<h2><b>로그인 유저 상세정보</b></h2>
+				<div class="ml-5 text-secondary">
+					<h2><b>개인정보수정</b></h2>
 				</div>
 			</div>
 		</div>
-		<div class=“d-flex justify-content-center”>
-		<div class = "row-sm-10">
-					<img src='{userInfo.uphoto}'><br>
+		<div class="row-sm-3 d-flex justify-content-center">
+			<img src='{userInfo.uphoto}'>
+		</div>
+		<div class = "row-sm-7 d-flex justify-content-center">
 		
 					<table>
 					<form action='update' method='post'>
 					<div class="btn-sm"> 
 					<div class="row">
-						<div class="col-sm-3">
+						<div class="col-sm-4">
 						<p class="text-left">프로필사진</p>
 						<p class="text-left">이름</p>
 						<p class="text-left">이메일</p>
 						<p class="text-left">주소</p>
 						<p class="text-left">상세주소</p>
 						<p class="text-left">전화</p>	
-						<p class="text-left">가입일</p>			
 						</div>
-						<div class="col-sm-9">
-							<input type = "file" name='uphoto' value='${userInfo.uphoto}'> <button type="button" class="btn btn-outline-warning btn-sm">수정</button><br>
-							<input type ="text" name="name" value='${userInfo.name}'> <button type="button" class="btn btn-outline-warning btn-sm">수정</button><br>
-							<input type='email' name='email' value='${userInfo.email}'> <button type="button" class="btn btn-outline-warning btn-sm">수정</button><br>
-							<input type="text" name='addr'value='${userInfo.addr}'> <button type="button" class="btn btn-outline-warning btn-sm">수정</button><br>
-							<input type="text" name='det_addr'value='${userInfo.det_addr}'> <button type="button" class="btn btn-outline-warning btn-sm">수정</button><br>
-							<input type='tel' name='tel' value='${userInfo.tel}'> <button type="button" class="btn btn-outline-warning btn-sm">수정</button><br>
-							<input type="datetime" name='rdt' value='${userInfo.rdt}'readonly><br>
+						<div class="col-sm-8">
+							<input type = "file" id="exampleFormControlInput1"name='uphoto' value='${userInfo.uphoto}' style='height:20px'><br>
+							
+							<input type ="text" id="exampleFormControlInput1" name="name" value='${userInfo.name}' style='height:32px'> <br>
+							<input type='email' id="exampleFormControlInput1"name='email' value='${userInfo.email}' style='height:32px'> <br>
+							<input type="text" id="exampleFormControlInput1"name='addr'value='${userInfo.addr}' style='height:32px'> <br>
+							<input type="text"id="exampleFormControlInput1" name='det_addr'value='${userInfo.det_addr}' style='height:32px'> <br>
+							<input type='tel' id="exampleFormControlInput1"name='tel' value='${userInfo.tel}' style='height:32px'> <br>
 						</div>
 					</div>
 					</div>
 					</form>
 					</table>
 				</div>	
+		</div>
+	<div class="row justify-content-center">
+			<div>
+				<button type="button" class="btn btn-outline-warning btn-lg" style="margin:10px;">  이전  </button>
+				<button type="button" class="btn btn-warning btn-lg">  수정  </button>
+			</div>
 		</div>
 	</div>
 	</div>
