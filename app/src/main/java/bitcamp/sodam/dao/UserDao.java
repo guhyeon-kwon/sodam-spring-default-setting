@@ -10,6 +10,7 @@ import bitcamp.sodam.beans.User;
 public interface UserDao {
   User findUser(String email, String pwd) throws Exception;
   User findByNo(int uno) throws Exception;
+  User findByNoUser(int uno) throws Exception;
   List<User> findAll() throws Exception;
   void addUser(User user) throws Exception;
 }

@@ -29,7 +29,7 @@ public class UploadTestService {
 	private String saveUploadFile(MultipartFile upload_file, User user) throws Exception {
 		
 		String file_name = sha256(user.getEmail()) + ".jpg";
-		String full_path = path + "/user/" + file_name;
+		String full_path = path + "/" + file_name;
 		
 		try {
 			upload_file.transferTo(new File(full_path));
@@ -37,7 +37,7 @@ public class UploadTestService {
 			e.printStackTrace();
 		}
 
-		return full_path;
+		return file_name;
 	}
 
 	// 파일 업로드 및 유저 등록 담당
