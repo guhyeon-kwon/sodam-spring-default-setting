@@ -45,11 +45,6 @@ public class UserController {
         
 		return "user/user_detail";
 	}
-	@PostMapping("/user_edit_info")
-	public String UserEdit() {
-		
-		return null;
-	}
 	
 	@PostMapping("/user_edit_info")
 	@ResponseBody
@@ -68,6 +63,7 @@ public class UserController {
 		}
         
         Map<String, String> map = new HashMap();
+        map.put("uno", String.valueOf(user.getUno()));
         map.put("name", user.getName());
         map.put("email", user.getEmail());
         map.put("pwd", user.getPwd());

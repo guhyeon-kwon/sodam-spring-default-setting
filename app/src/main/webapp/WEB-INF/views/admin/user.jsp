@@ -813,8 +813,10 @@
 										</button>
 									</div>
 									<div class="modal-body">
-										<form id="userEdit-form" method="post" action="/user_edit" enctype="multipart/form-data" novalidate>
-											<input type="hidden" class="form-control" name="uno" id="edit-uno">
+										<form id="userEdit-form" method="post" action="/admin/user_edit" enctype="multipart/form-data" novalidate>
+											<div class="form-group">
+												<input type="hidden" class="form-control" name="uno" id="edit-uno" value="" required>
+											</div>
 											<div class="form-group">
 												<label>이름</label>
 												<input type="text" class="form-control" name="name" id="edit-name" required>
@@ -998,8 +1000,6 @@ function userEdit(userId) {
 		$("#edit-det_addr").val(data.det_addr);
 		$("#edit-tel").val(data.tel);
 		$("#edit-birth").val(data.birth);
-		/* $("#edit-photo").attr("src","/filepath/"+data.photo); */
-		/* $("#edit-photo").attr("data-default-file",data.photo); */
 		
 		var imagenUrl = data.photo;
 		var drEvent = $('#edit-photo').dropify(
@@ -1012,7 +1012,6 @@ function userEdit(userId) {
 		drEvent.settings.defaultFile = imagenUrl;
 		drEvent.destroy();
 		drEvent.init();
-		
 	});
     
 };

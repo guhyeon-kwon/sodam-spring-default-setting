@@ -113,22 +113,9 @@ public class AdminController {
         return "redirect:/admin/user";
     }
 	
-	@GetMapping("/add")
-	public String Add(@ModelAttribute("addUserBean") User user) {
-		System.out.println("유저 추가 테스트 폼");
-
-		return "admin/sample";
-	}
-	
-	@PostMapping("/add_user")
-    public String Adduser(@ModelAttribute("addUserBean") User user, HttpServletRequest request) throws Exception {
-		uploadTestService.addUserInfo(user);
-		
-        return "redirect:/admin/add";
-    }
-	
-	@PostMapping("/test")
-	public String Test(User user, HttpServletRequest request) throws Exception {
+	@PostMapping("/user_edit")
+    public String AdminUserEdit(User user, HttpServletRequest request) throws Exception {
+		uploadTestService.editUserInfo(user);
 		
         return "redirect:/admin/user";
     }

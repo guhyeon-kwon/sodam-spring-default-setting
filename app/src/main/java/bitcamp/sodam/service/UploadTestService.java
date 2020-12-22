@@ -52,6 +52,19 @@ public class UploadTestService {
 		}
 	}
 	
+	public void editUserInfo(User user) throws Exception {
+		
+		MultipartFile upload_file = user.getUpload_image();
+		
+		if (upload_file.getSize() > 0) {
+			String file_name = saveUploadFile(upload_file, user);
+			user.setUphoto(file_name);
+			userDao.editUser(user);
+		} else {
+			userDao.editUser(user);
+		}
+	}
+	
 	// 문자열 넘겨주면 sha256 암호화하여 리턴
 	public static String sha256(String msg) throws Exception {
 	    MessageDigest md = MessageDigest.getInstance("SHA-256");
