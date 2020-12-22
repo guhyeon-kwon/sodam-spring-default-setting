@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>가게등록</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/storeAdd.css">
+    <link rel="stylesheet" href="/css/storeAdd.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>가게 등록</title>
 </head>
@@ -16,7 +16,7 @@
 	<div class="container_1">
 	<h1 class="title-name">가게 등록</h1>
 	</div>
-<form action='/store/add' method='post' accept-charset="UTF-8">
+<form action='add' method='post' accept-charset="UTF-8">
 	<div class="container mt-5" style="min-height: calc(100vh - 132px);">
 		<div class="row">
 			<div class="col-sm-12">

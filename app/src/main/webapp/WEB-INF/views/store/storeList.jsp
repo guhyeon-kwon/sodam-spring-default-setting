@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>가게목록</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/storeList.css">
+    <link rel="stylesheet" href="/css/storeList.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
 .checked {
@@ -28,7 +28,7 @@
             <div class="row">
               <div class="col-sm">
                 <div class="card" style="width: 15rem; height:320px; border:1px solid light-gray; padding:20px;">
-                    <img class="card-img-top" src="img/SODAMchunggwa.jpg" alt="Card image cap"  height="150px" >
+                    <img class="card-img-top" src="/img/SODAMchunggwa.jpg" alt="Card image cap"  height="150px" >
                     <div class="card-body" style="border-top:1px solid orange; margin-top:20px;">
                       <font class="card-title1">소담청과</font>
                     </div>
@@ -52,7 +52,7 @@
               </div>
               <div class="col-sm">
                 <div class="card" style="width: 15rem; height:320px; border:1px solid light-gray; padding:20px;">
-                    <img class="card-img-top" src="img/storePicture.jpg" alt="Card image cap"  height="150px" >
+                    <img class="card-img-top" src="/img/storePicture.jpg" alt="Card image cap"  height="150px" >
                     <div class="card-body" style="border-top:1px solid orange; margin-top:20px;">
                       <font class="card-title1">청춘야채청과</font>
                     </div>
@@ -76,7 +76,7 @@
               </div>
               <div class="col-sm">
                 <div class="card" style="width: 15rem; height:320px; border:1px solid light-gray; padding:20px;">
-                    <img class="card-img-top" src="img/storePicture2.png" alt="Card image cap"  height="150px" >
+                    <img class="card-img-top" src="/img/storePicture2.png" alt="Card image cap"  height="150px" >
                     <div class="card-body" style="border-top:1px solid orange; margin-top:20px;">
                       <font class="card-title1">비트채소가게</font>
                     </div>
@@ -98,7 +98,7 @@
               </div>
               <div class="col-sm">
                 <div class="card" style="width: 15rem; height:320px; border:1px solid light-gray; padding:20px;">
-                    <img class="card-img-top" src="img/storePicture3.jpg" alt="Card image cap"  height="150px" >
+                    <img class="card-img-top" src="/img/storePicture3.jpg" alt="Card image cap"  height="150px" >
                     <div class="card-body" style="border-top:1px solid orange; margin-top:20px;">
                       <font class="card-title1">할미손 칼국수</font>
                     </div>
