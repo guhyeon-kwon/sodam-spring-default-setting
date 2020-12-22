@@ -122,7 +122,6 @@ public class AdminController {
 	
 	@PostMapping("/add_user")
     public String Adduser(@ModelAttribute("addUserBean") User user, HttpServletRequest request) throws Exception {
-		String realPath = request.getServletContext().getRealPath("/");
 		uploadTestService.addUserInfo(user);
 		
         return "redirect:/admin/add";

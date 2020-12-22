@@ -21,4 +21,7 @@ public interface UserMapper {
     
     @Insert("insert into tmk_user(name, email, pwd, pst, addr, det_addr, tel, birth, status, auth, uphoto, uthum_photo) VALUES(#{name},#{email},#{pwd},#{pst},#{addr},#{det_addr},#{tel},#{birth},#{status},#{auth},#{uphoto},#{uthum_photo})")
     void addUser(User user);
+    
+    @Select("select uno, name, email, pwd, pst, addr, det_addr, tel, birth, uphoto, rdt, auth from tmk_user where uno = #{uno}")
+    User findNoUser(@Param("uno")int uno);
 }
