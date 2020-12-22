@@ -41,7 +41,7 @@ public class StoreController {
         return "store/storeList";
     }
     
-    @GetMapping("insert")
+    @GetMapping("form")
     public String insertStore() throws Exception {
         System.out.println("가게등록폼");
 

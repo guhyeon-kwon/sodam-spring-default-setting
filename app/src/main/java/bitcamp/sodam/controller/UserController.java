@@ -51,7 +51,7 @@ public class UserController {
 		return null;
 	}
 	
-	@PostMapping("/user_edit_info")
+	@PostMapping("/user_edit")
 	@ResponseBody
 	public Map<String, String> UserEdit(HttpServletRequest request, HttpServletResponse response, Model model) {
 		
