@@ -26,6 +26,8 @@
 
 <link rel="stylesheet" href="/oculux/assets_vendor/vendor/sweetalert/sweetalert.css"/>
 
+<link rel="stylesheet" href="/oculux/assets_vendor/vendor/summernote/dist/summernote.css"/>
+
 <!-- MAIN CSS -->
 <link rel="stylesheet" href="/oculux/assets/css/site.min.css">
 
@@ -49,56 +51,51 @@
 		<jsp:include page="../include/admin_nav.jsp"></jsp:include>
 		
 		<div id="main-content">
-			<div class="container-fluid">
-				<div class="block-header">
-					<div class="row clearfix">
-						<div class="col-md-6 col-sm-12">
-							<h1>카테고리 관리</h1>
-							<nav aria-label="breadcrumb">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="#">소담소담</a></li>
-									<li class="breadcrumb-item active" aria-current="page">공지사항</li>
-								</ol>
-							</nav>
-						</div>
-						<div class="col-md-6 col-sm-12 text-right hidden-xs">
-							<a href="javascript:void(0);" class="btn btn-sm btn-primary"
-								title="" data-toggle="modal" data-target="#userAddModal">공지사항 등록</a>
-						</div>
-					</div>
-				</div>
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row clearfix">
+                    <div class="col-md-6 col-sm-12">
+                        <h1>공지사항 등록</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">소담소담</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">공지사항</li>
+                            </ol>
+                        </nav>
+                    </div>            
+                    <div class="col-md-6 col-sm-12 text-right hidden-xs">
+                        <a href="javascript:void(0);" class="btn btn-sm btn-primary" title="">작성취소</a>
+                    </div>
+                </div>
+            </div>
+                    
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body">
+                            <div id="summernote" class="summernote">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
 
-				<div class="row clearfix">
-					<div class="col-lg-12">
-						<div class="card">
-							<table class="table table-hover js-basic-example dataTable table-custom spacing5">
-                                    <thead>
-                                        <tr>
-                                            <th class="col-5">제목</th>
-                                            <th class="col-4">등록일</th>
-                                            <th class="col-3"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    	<c:forEach var="item" items="${list}">
-                                    	<tr>
-                                            <td><a href="#">${item.ntitle}</a></td>
-                                            <td>${item.ndate}</td>
-                                            <td>
-                                                <button type="button" class="btn btn-danger mb-2 js-sweetalert" title="Delete" value="${item.nno}" data-type="delete"><span class="sr-only">Delete</span> <i class="fa fa-trash-o"></i></button>
-                                            </td>
-                                        </tr>
-                                    	</c:forEach>
-                                        
-                                    </tbody>
-                                </table>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
+        </div>
+    </div>
 	</div>
+<style>
+	.note-frame{
+		background-color: white !important;
+	}
+	.note-editable{
+		background: white !important;
+		color:black !important;
+	}
+	.note-statusbar{
+		background-color: white !important;
+	}
+</style>
 
 <!-- Javascript -->
 <script src="/oculux/assets/bundles/libscripts.bundle.js"></script>    
@@ -115,9 +112,12 @@
 <script src="/oculux/assets_vendor/vendor/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
 <script src="/oculux/assets_vendor/vendor/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
 <script src="/oculux/assets_vendor/vendor/jquery-datatable/buttons/buttons.colVis.min.js"></script>
-<script src="/oculux/assets/vendor/jquery-datatable/buttons/buttons.html5.min.js"></script>
-<script src="/oculux/assets/vendor/jquery-datatable/buttons/buttons.print.min.js"></script>
+<script src="/oculux/assets_vendor/vendor/jquery-datatable/buttons/buttons.html5.min.js"></script>
+<script src="/oculux/assets_vendor/vendor/jquery-datatable/buttons/buttons.print.min.js"></script>
 <script src="/oculux/assets/js/pages/tables/jquery-datatable.js"></script>
+
+<script src="/oculux/assets_vendor/vendor/summernote/dist/summernote.js"></script>
+
 </body>
 </html>
 

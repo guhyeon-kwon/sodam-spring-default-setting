@@ -156,5 +156,16 @@ public class AdminController {
 		return "admin/notice";
 	}
 	
+	@GetMapping("/notice_write")
+	public String AdminNoticeWrite(HttpServletResponse response, Model model) {
+		System.out.println("어드민 공지사항");
+
+		response.setContentType("text/html;charset=UTF-8");
+
+		response.setCharacterEncoding("UTF-8"); // 응답의 encoding을 utf-8로 변경
+
+		return "admin/notice_write";
+	}
+	
 	
 }
