@@ -39,4 +39,10 @@ public class DefaultUserService implements UserService {
 		User user = userDao.findByNoUser(uno);
 		return user;
 	}
+
+	@Override
+	public void delete(int no) throws Exception {
+		userDao.deleteUser(no);
+		
+	}
 }

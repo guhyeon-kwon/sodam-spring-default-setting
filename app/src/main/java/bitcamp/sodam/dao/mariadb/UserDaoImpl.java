@@ -39,6 +39,16 @@ public class UserDaoImpl implements UserDao {
 	public User findByNoUser(int uno) throws Exception {
 		return userMapper.findNoUser(uno);
 	}
+
+	@Override
+	public void editUser(User user) throws Exception {
+		userMapper.editUser(user);
+	}
+
+	@Override
+	public void deleteUser(int uno) throws Exception {
+		userMapper.deleteUser(uno);
+	}
 	
 }
 

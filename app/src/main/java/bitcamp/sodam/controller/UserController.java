@@ -1,13 +1,10 @@
 package bitcamp.sodam.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,45 +42,8 @@ public class UserController {
         
 		return "user/user_detail";
 	}
-	@PostMapping("/user_edit_info")
-	public String UserEdit() {
-		
-		return null;
-	}
 	
-<<<<<<< HEAD
-//	@PostMapping("/user_edit_info")
-//	@ResponseBody
-//	public Map<String, String> UserEdit(HttpServletRequest request, HttpServletResponse response, Model model) {
-//		
-//		response.setContentType("text/html;charset=UTF-8");
-//
-//        response.setCharacterEncoding("UTF-8");
-//        
-//        User user = null;
-//        try {
-//			user = userService.getUser(Integer.parseInt(request.getParameter("id")));
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//        
-//        Map<String, String> map = new HashMap();
-//        map.put("name", user.getName());
-//        map.put("email", user.getEmail());
-//        map.put("pwd", user.getPwd());
-//        map.put("pst", user.getPst());
-//        map.put("addr", user.getAddr());
-//        map.put("det_addr", user.getDet_addr());
-//        map.put("tel", user.getTel());
-//        map.put("birth", user.getBirth());
-//        map.put("auth", String.valueOf(user.getAuth()));
-//        map.put("photo", user.getUphoto());
-//		
-//		return map;
-//	}
-=======
-	@PostMapping("/user_edit")
+	@PostMapping("/user_edit_info")
 	@ResponseBody
 	public Map<String, String> UserEdit(HttpServletRequest request, HttpServletResponse response, Model model) {
 		
@@ -100,6 +60,7 @@ public class UserController {
 		}
         
         Map<String, String> map = new HashMap();
+        map.put("uno", String.valueOf(user.getUno()));
         map.put("name", user.getName());
         map.put("email", user.getEmail());
         map.put("pwd", user.getPwd());
@@ -113,5 +74,4 @@ public class UserController {
 		
 		return map;
 	}
->>>>>>> 01d54f362d11d00d7774b0b0f8c7ccdf8ea764c5
 }

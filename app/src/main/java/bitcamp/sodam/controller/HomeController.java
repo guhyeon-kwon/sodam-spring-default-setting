@@ -70,4 +70,9 @@ public class HomeController {
 
 		return "serviceCenter/faq_detail";
 	}
+	
+	@GetMapping("/sample/test")
+	public String Test() {
+		return "sample.test";
+	}
 }

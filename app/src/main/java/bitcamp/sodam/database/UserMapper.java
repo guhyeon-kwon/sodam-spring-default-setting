@@ -2,10 +2,11 @@ package bitcamp.sodam.database;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-
+import org.apache.ibatis.annotations.Update;
 
 import bitcamp.sodam.beans.User;
 
@@ -21,6 +22,12 @@ public interface UserMapper {
     
     @Insert("insert into tmk_user(name, email, pwd, pst, addr, det_addr, tel, birth, status, auth, uphoto, uthum_photo) VALUES(#{name},#{email},#{pwd},#{pst},#{addr},#{det_addr},#{tel},#{birth},#{status},#{auth},#{uphoto},#{uthum_photo})")
     void addUser(User user);
+    
+    @Update("UPDATE tmk_user SET name=#{name}, email=#{email}, pwd=#{pwd}, pst=#{pst}, addr=#{addr}, det_addr=#{det_addr}, tel=#{tel}, birth=#{birth}, status=#{status}, auth=#{auth}, uphoto=#{uphoto} WHERE uno = #{uno}")
+    void editUser(User user);
+    
+    @Delete("DELETE FROM tmk_user WHERE uno = #{uno}")
+    void deleteUser(int uno);
     
     @Select("select uno, name, email, pwd, pst, addr, det_addr, tel, birth, uphoto, rdt, auth from tmk_user where uno = #{uno}")
     User findNoUser(@Param("uno")int uno);
