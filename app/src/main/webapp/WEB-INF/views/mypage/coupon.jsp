@@ -32,7 +32,7 @@
         </div>
         
         
-        	<table class="table">
+        	<table class="table coupon_table mx-auto text-center">
         		<thead class="thead-dark">
         			<tr>
         				<th scope="col">쿠폰명</th>
