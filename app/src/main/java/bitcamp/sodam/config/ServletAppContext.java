@@ -16,10 +16,14 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesView;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 import bitcamp.sodam.database.BasketMapper;
 import bitcamp.sodam.database.CategoryMapper;
 import bitcamp.sodam.database.FAQMapper;
+import bitcamp.sodam.database.NoticeMapper;
 import bitcamp.sodam.database.StoreMapper;
 import bitcamp.sodam.database.UserMapper;
 import bitcamp.sodam.interceptor.CheckLoginInterceptor;
@@ -49,12 +53,30 @@ public class ServletAppContext implements WebMvcConfigurer {
 
     @Value("${db.password}")
     private String db_password;
+    
+    @Bean
+    public TilesConfigurer tilesConfigurer() {
+        TilesConfigurer configurer = new TilesConfigurer();
+        configurer.setDefinitions(new String[]{"/WEB-INF/tiles.xml"});
+        configurer.setCheckRefresh(true);
+        return configurer;
+    }
+    
+    @Bean
+    public TilesViewResolver tilesViewResolver() {
+       TilesViewResolver viewResolver = new TilesViewResolver();
+       viewResolver.setViewClass(TilesView.class);
+       viewResolver.setOrder(1);
+       
+       return viewResolver;
+    }
 
     // Controller의 메서드가 반환하는 JSP의 이름 앞 뒤에 경로와 확장자를 붙여주도록 설정한다.
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         WebMvcConfigurer.super.configureViewResolvers(registry);
         registry.jsp("/WEB-INF/views/",".jsp");
+        registry.order(2);
     }
 
     // 정적 파일의 경로는 매핑한다.
@@ -155,9 +177,15 @@ public class ServletAppContext implements WebMvcConfigurer {
     }
     
     @Bean
+    public MapperFactoryBean<NoticeMapper> notice_mapper(SqlSessionFactory factory) throws Exception{
+        MapperFactoryBean<NoticeMapper> factoryBean = new MapperFactoryBean<>(NoticeMapper.class);
+        factoryBean.setSqlSessionFactory(factory);
+        return factoryBean;
+    }
+    
+    @Bean
     // multipart/form-data로 전송한 데이터를 추출하는 기능을 제공해주는 Bean
 	public StandardServletMultipartResolver multipartResolver() {
 		return new StandardServletMultipartResolver();
 	}
-
 }

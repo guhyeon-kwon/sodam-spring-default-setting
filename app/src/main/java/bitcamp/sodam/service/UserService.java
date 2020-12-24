@@ -9,4 +9,5 @@ public interface UserService {
   User get(int uno) throws Exception;
   User getUser(int uno) throws Exception;
   List<User> list() throws Exception;
+  void delete(int no) throws Exception;
 }

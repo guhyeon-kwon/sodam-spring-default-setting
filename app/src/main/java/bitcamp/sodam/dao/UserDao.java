@@ -14,6 +14,7 @@ public interface UserDao {
   List<User> findAll() throws Exception;
   void addUser(User user) throws Exception;
   void editUser(User user) throws Exception;
+  void deleteUser(int uno) throws Exception;
 }
 
 

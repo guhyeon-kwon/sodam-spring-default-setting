@@ -44,6 +44,11 @@ public class UserDaoImpl implements UserDao {
 	public void editUser(User user) throws Exception {
 		userMapper.editUser(user);
 	}
+
+	@Override
+	public void deleteUser(int uno) throws Exception {
+		userMapper.deleteUser(uno);
+	}
 	
 }
 

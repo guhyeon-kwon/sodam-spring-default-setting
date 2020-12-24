@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import bitcamp.sodam.beans.Category;
+import bitcamp.sodam.beans.Notice;
 import bitcamp.sodam.beans.User;
 import bitcamp.sodam.service.CategoryService;
+import bitcamp.sodam.service.NoticeService;
 import bitcamp.sodam.service.UploadTestService;
 import bitcamp.sodam.service.UserService;
 
@@ -29,6 +31,9 @@ public class AdminController {
 
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	NoticeService noticeService;
 	
 	@Autowired
 	private UploadTestService uploadTestService;
@@ -119,5 +124,48 @@ public class AdminController {
 		
         return "redirect:/admin/user";
     }
+	
+	@PostMapping("/user_delete")
+    public String AdminUserDelete(User user, HttpServletRequest request) throws Exception {
+		System.out.println("어드민 카테고리 삭제");
+		try {
+			userService.delete(Integer.parseInt(request.getParameter("no")));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "redirect:/admin/user";
+    }
+	
+	@GetMapping("/notice")
+	public String AdminNotice(HttpServletResponse response, Model model) {
+		System.out.println("어드민 공지사항");
+
+		response.setContentType("text/html;charset=UTF-8");
+
+		response.setCharacterEncoding("UTF-8"); // 응답의 encoding을 utf-8로 변경
+
+		List<Notice> list;
+		try {
+			list = noticeService.list();
+			model.addAttribute("list", list);
+		} catch (Exception e) {
+			model.addAttribute("list", null);
+			e.printStackTrace();
+		}
+
+		return "admin/notice";
+	}
+	
+	@GetMapping("/notice_write")
+	public String AdminNoticeWrite(HttpServletResponse response, Model model) {
+		System.out.println("어드민 공지사항");
+
+		response.setContentType("text/html;charset=UTF-8");
+
+		response.setCharacterEncoding("UTF-8"); // 응답의 encoding을 utf-8로 변경
+
+		return "admin/notice_write";
+	}
+	
 	
 }

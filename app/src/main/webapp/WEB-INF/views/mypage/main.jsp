@@ -57,7 +57,7 @@
                 <div class="card" style="width: 15rem;">
                     <img class="card-img-top" src="img/photo1.svg" alt="Card image cap">
                     <div class="card-body">
-                      <h5 class="card-title">쿠폰</h5>
+                      <h5 class="card-title"><a href="/coupon">쿠폰</a></h5>
                     </div>
                   </div>
               </div>
