@@ -23,8 +23,16 @@ public class ProductController {
 
     return "product/product_detail";
   }
-
   @GetMapping("/product_list")
+  public String ProductList(HttpServletResponse response) {
+
+    response.setContentType("text/html; charset=UTF-8");
+
+    return "product/product_list";
+  }
+
+
+  @GetMapping("/product_list1")
   public String ProductList(HttpServletRequest request, HttpServletResponse response, Model model) {
 
     response.setContentType("text/html; charset=UTF-8");
@@ -33,12 +41,12 @@ public class ProductController {
 
     try {
       List<Product> list = productService.list(keyword);
-      model.addAttribute(list);
+      model.addAttribute("list", productService.list(keyword));
     } catch (Exception e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
 
-    return "product/product_list";
+    return "product/product_list1";
   }
 }

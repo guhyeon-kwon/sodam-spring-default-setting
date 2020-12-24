@@ -94,9 +94,9 @@ public class SpringConfigClass extends AbstractAnnotationConfigDispatcherServlet
         return new Filter[] {encodingFilter}; // 필터에 적용
     }
     
+    // Multipart에 대한 설정
     @Override
     protected void customizeRegistration(Dynamic registration) {
-    	// TODO Auto-generated method stub
     	super.customizeRegistration(registration);
     	
     	// 총 4개의 엘리먼트를 설정해준다.

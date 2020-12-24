@@ -28,4 +28,8 @@ public class CategoryDao {
 	public void update(Category category) throws Exception{
 		categoryMapper.update(category);
 	}
+	
+	public List<Category> findByNo(int sno) throws Exception{
+		return categoryMapper.findByNo(sno);
+	}
 }

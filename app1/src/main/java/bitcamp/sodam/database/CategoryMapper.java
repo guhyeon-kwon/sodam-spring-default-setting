@@ -22,4 +22,7 @@ public interface CategoryMapper {
     @Update("UPDATE tmk_category_list SET ctname = #{ctname} WHERE ctno = #{ctno}")
     void update(Category category);
     
+    @Select("SELECT c.sno, c.ctno, cl.ctname FROM tmk_category c JOIN tmk_category_list cl on c.ctno = cl.ctno WHERE sno = #{sno}")
+    List<Category> findByNo(int sno);
+    
 }

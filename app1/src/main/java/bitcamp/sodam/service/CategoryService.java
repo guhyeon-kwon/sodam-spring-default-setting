@@ -9,4 +9,5 @@ public interface CategoryService {
 	void add(String name) throws Exception;
 	void delete(int no) throws Exception;
 	void update(Category category) throws Exception;
+	List<Category> list(int sno) throws Exception;
 }
