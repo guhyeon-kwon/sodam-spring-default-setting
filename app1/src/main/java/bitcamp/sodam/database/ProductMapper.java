@@ -23,6 +23,7 @@ public interface ProductMapper {
       + "where pno = #{pno}")
   Product findByNo(int pno);
 
+
   @Insert("insert into tmk_product(sno,pname,price,stock,photo,pint,pcdt)"
       + "values(#{market.sno},#{pname},#{price},#{stock},#{photo},#{pint},#{pcdt}")
   int insert(Product product);
