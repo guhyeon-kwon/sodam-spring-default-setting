@@ -9,8 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.web.multipart.MultipartResolver;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
@@ -18,10 +16,10 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
 import bitcamp.sodam.database.BasketMapper;
 import bitcamp.sodam.database.CategoryMapper;
 import bitcamp.sodam.database.FAQMapper;
+import bitcamp.sodam.database.ProductMapper;
 import bitcamp.sodam.database.StoreMapper;
 import bitcamp.sodam.database.UserMapper;
 import bitcamp.sodam.interceptor.CheckLoginInterceptor;
@@ -65,17 +63,17 @@ public class ServletAppContext implements WebMvcConfigurer {
         WebMvcConfigurer.super.addResourceHandlers(registry);
         registry.addResourceHandler("/**").addResourceLocations("/WEB-INF/resources/");
     }
-    
+
     // 인터셉터를 등록한다.
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
     	// TODO Auto-generated method stub
     	WebMvcConfigurer.super.addInterceptors(registry);
-    	
+
     	CheckLoginInterceptor checkLoginInterceptor = new CheckLoginInterceptor();
-    	
+
     	InterceptorRegistration reg1 = registry.addInterceptor(checkLoginInterceptor);
-    	
+
     	reg1.addPathPatterns("/user_detail");
     	// registration에 pathPatterns를 여러개 추가하여 여러 path에 대해 인터셉터를 적용할 수 있다.
     	// reg1.addPathPatterns("/user_detail", "/user_detail2"); 이런식으로 콤마로 붙여서 추가할 수도 있다.
@@ -118,7 +116,7 @@ public class ServletAppContext implements WebMvcConfigurer {
 
     // 쿼리문 실행을 위한 객체
     // 여기서 mapper(쿼리문)와 데이터베이스 연결을 관리하는 factory를 받아서 DB에 Sql문을 날리는 객체를 만든다.(mapper마다 하나씩 만들어줘야함)
-    
+
     //FAQ Mapper
     @Bean
     public MapperFactoryBean<FAQMapper> faq_mapper(SqlSessionFactory factory) throws Exception{
@@ -126,35 +124,42 @@ public class ServletAppContext implements WebMvcConfigurer {
         factoryBean.setSqlSessionFactory(factory);
         return factoryBean;
     }
-    
+
     @Bean
     public MapperFactoryBean<UserMapper> user_mapper(SqlSessionFactory factory) throws Exception{
         MapperFactoryBean<UserMapper> factoryBean = new MapperFactoryBean<>(UserMapper.class);
         factoryBean.setSqlSessionFactory(factory);
         return factoryBean;
     }
-    
+
     @Bean
     public MapperFactoryBean<BasketMapper> basket_mapper(SqlSessionFactory factory) throws Exception{
         MapperFactoryBean<BasketMapper> factoryBean = new MapperFactoryBean<>(BasketMapper.class);
         factoryBean.setSqlSessionFactory(factory);
         return factoryBean;
     }
-    
+
     @Bean
     public MapperFactoryBean<StoreMapper> store_mapper(SqlSessionFactory factory) throws Exception{
         MapperFactoryBean<StoreMapper> factoryBean = new MapperFactoryBean<>(StoreMapper.class);
         factoryBean.setSqlSessionFactory(factory);
         return factoryBean;
     }
-    
+
     @Bean
     public MapperFactoryBean<CategoryMapper> category_mapper(SqlSessionFactory factory) throws Exception{
         MapperFactoryBean<CategoryMapper> factoryBean = new MapperFactoryBean<>(CategoryMapper.class);
         factoryBean.setSqlSessionFactory(factory);
         return factoryBean;
     }
-    
+
+    @Bean
+    public MapperFactoryBean<ProductMapper> product_mapper(SqlSessionFactory factory) throws Exception{
+        MapperFactoryBean<ProductMapper> factoryBean = new MapperFactoryBean<>(ProductMapper.class);
+        factoryBean.setSqlSessionFactory(factory);
+        return factoryBean;
+    }
+
     @Bean
     // multipart/form-data로 전송한 데이터를 추출하는 기능을 제공해주는 Bean
 	public StandardServletMultipartResolver multipartResolver() {

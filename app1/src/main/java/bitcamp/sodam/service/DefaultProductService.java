@@ -1,9 +1,11 @@
 package bitcamp.sodam.service;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 import bitcamp.sodam.beans.Product;
 import bitcamp.sodam.dao.ProductDao;
 
+@Service
 public class DefaultProductService implements ProductService {
 
 	ProductDao productDao;
@@ -13,8 +15,8 @@ public class DefaultProductService implements ProductService {
   }
 
   @Override
-  public List<Product> list() throws Exception {
-    return productDao.findAll(null);
+  public List<Product> list(String keyword) throws Exception {
+    return productDao.findAll(keyword);
   }
 
   @Override
