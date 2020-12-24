@@ -16,6 +16,7 @@ public interface ProductMapper {
       + "p.pno asc")
   List<Product> findAll(String keyword);
 
+
   @Select("select pno, pname, p.sno, price, stock, photo, pint, pcdt"
       + "from tmk_product p"
       + "join tmk_store_info s on p.sno = s.sno"
