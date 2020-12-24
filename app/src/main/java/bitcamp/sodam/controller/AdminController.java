@@ -1,6 +1,8 @@
 package bitcamp.sodam.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import bitcamp.sodam.beans.Category;
 import bitcamp.sodam.beans.Notice;
@@ -120,6 +124,7 @@ public class AdminController {
 	
 	@PostMapping("/user_edit")
     public String AdminUserEdit(User user, HttpServletRequest request) throws Exception {
+		
 		uploadTestService.editUserInfo(user);
 		
         return "redirect:/admin/user";
@@ -157,14 +162,51 @@ public class AdminController {
 	}
 	
 	@GetMapping("/notice_write")
-	public String AdminNoticeWrite(HttpServletResponse response, Model model) {
+	public String AdminNoticeWrite(HttpServletRequest request, HttpServletResponse response, Model model) {
 		System.out.println("어드민 공지사항");
 
 		response.setContentType("text/html;charset=UTF-8");
 
 		response.setCharacterEncoding("UTF-8"); // 응답의 encoding을 utf-8로 변경
+		
+		String nno = request.getParameter("nno");
+		
+		if(nno != null) {
+			Notice notice;
+			try {
+				notice = noticeService.get(Integer.parseInt(nno));
+				model.addAttribute("post", notice);
+			} catch (Exception e) {
+				model.addAttribute("post", null);
+				e.printStackTrace();
+			}
+		}
 
 		return "admin/notice_write";
+	}
+	
+	@GetMapping("/notice_edit")
+	public String AdminNoticeEdit(HttpServletRequest request, HttpServletResponse response, Model model) {
+		
+        return "redirect:/admin/user";
+	}
+	
+	@PostMapping("/notice_add")
+	public String AdminNoticeAdd(HttpServletResponse response, Model model, Notice notice) {
+		System.out.println("어드민 공지사항 등록");
+
+		response.setContentType("text/html;charset=UTF-8");
+
+		response.setCharacterEncoding("UTF-8"); // 응답의 encoding을 utf-8로 변경
+		
+		try {
+			noticeService.add(notice);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return "admin/notice";
 	}
 	
 	

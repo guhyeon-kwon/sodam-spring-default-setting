@@ -19,6 +19,14 @@ public class NoticeDao {
 	public List<Notice> findAll() throws Exception{
 	  return noticeMapper.findAll();
 	}
+	
+	public void add(Notice notice) throws Exception{
+		noticeMapper.addNotice(notice);
+	}
+	
+	public Notice findByNo(int nno) throws Exception{
+	  return noticeMapper.findByNo(nno);
+	}
 }
 
 

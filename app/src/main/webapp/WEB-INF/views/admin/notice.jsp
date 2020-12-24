@@ -82,7 +82,7 @@
                                     <tbody>
                                     	<c:forEach var="item" items="${list}">
                                     	<tr>
-                                            <td><a href="#">${item.ntitle}</a></td>
+                                            <td><a href="javascript:editNotice(${item.nno });">${item.ntitle}</a></td>
                                             <td>${item.ndate}</td>
                                             <td>
                                                 <button type="button" class="btn btn-danger mb-2 js-sweetalert" title="Delete" value="${item.nno}" data-type="delete"><span class="sr-only">Delete</span> <i class="fa fa-trash-o"></i></button>
@@ -118,6 +118,17 @@
 <script src="/oculux/assets_vendor/vendor/jquery-datatable/buttons/buttons.html5.min.js"></script>
 <script src="/oculux/assets_vendor/vendor/jquery-datatable/buttons/buttons.print.min.js"></script>
 <script src="/oculux/assets/js/pages/tables/jquery-datatable.js"></script>
+<script type="text/javascript">
+		var editNotice = function(nno) {
+			console.log(markup);
+			$.post("/admin/notice_write",
+					{
+						nno:nno
+					})
+			
+			};
+		
+</script>
 </body>
 </html>
 

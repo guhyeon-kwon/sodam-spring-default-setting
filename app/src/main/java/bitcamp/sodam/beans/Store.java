@@ -1,6 +1,7 @@
 package bitcamp.sodam.beans;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Store {
   private int sno;
@@ -16,6 +17,7 @@ public class Store {
   private String sdt;
   private String scdt;
   private User owner;
+  private List<Category> category; 
 
 public int getSno() {
       return sno;
@@ -121,7 +123,14 @@ public int getSno() {
 	public void setScdt(String scdt) {
 		this.scdt = scdt;
 	}
-    
-    
 
+	public List<Category> getCategory() {
+		return category;
+	}
+
+	public void setCategory(List<Category> category) {
+		this.category = category;
+	}
+
+	
 }

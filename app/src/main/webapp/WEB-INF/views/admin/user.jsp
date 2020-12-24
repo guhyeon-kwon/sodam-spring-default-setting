@@ -166,13 +166,12 @@
 									</div>
 									<div class="modal-body">
 										<form id="userEdit-form" method="post" action="/admin/user_edit" enctype="multipart/form-data" novalidate>
-<<<<<<< HEAD
+											<div class="form-group">
+												<input type="hidden" class="form-control" name="uphoto" id="edit-default-photo" value="" required>
+											</div>
 											<div class="form-group">
 												<input type="hidden" class="form-control" name="uno" id="edit-uno" value="" required>
 											</div>
-=======
-											<input type="hidden" class="form-control" name="uno" id="edit-uno">
->>>>>>> 0b758631e61ecc7ce7c5666508d997478efab83b
 											<div class="form-group">
 												<label>이름</label>
 												<input type="text" class="form-control" name="name" id="edit-name" required>
@@ -349,6 +348,7 @@ function userEdit(userId) {
 			break;
 		}
 		
+		$("#edit-default-photo").val(data.photo);
 		$("#edit-uno").val(data.uno);
 		$("#edit-name").val(data.name);
 		$("#edit-email").val(data.email);
@@ -359,7 +359,7 @@ function userEdit(userId) {
 		$("#edit-tel").val(data.tel);
 		$("#edit-birth").val(data.birth);
 		
-		var imagenUrl = data.photo;
+		var imagenUrl = "/filepath/" +data.photo;
 		var drEvent = $('#edit-photo').dropify(
 		{
 		  defaultFile: imagenUrl

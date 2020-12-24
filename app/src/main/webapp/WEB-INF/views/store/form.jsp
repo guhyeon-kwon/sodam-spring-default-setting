@@ -84,7 +84,67 @@
 									placeholder="참고항목" style="width: 200px">
 							</div>
 
-							<script>
+							
+							<p>
+								<input type="text" class="form-control text-center"
+									id="exampleFormControlInput1" placeholder="업종"
+									style="width: 500px">
+							</p>
+							<p>
+								<input type="text" name="sdt" class="text-center"
+									id="exampleFormControlInput1" placeholder="영업시간"
+									style="width: 250px"> ~
+									<input type="text" name="edt" class="text-center"
+                  id="exampleFormControlInput1" placeholder="영업시간"
+                  style="width: 250px">
+							</p>
+							<p>
+								<input type="text" class="form-control text-center"
+									id="exampleFormControlInput1" placeholder="대표상품"
+									style="width: 500px">
+							</p>
+							<p>
+								<input type="file" style="width: 500px">
+							</p>
+							<p>
+								<textarea name="sint" class="form-control text-center"
+									id="exampleFormControlInput1" placeholder="가게소개"
+									style="width: 500px"></textarea>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="container_1" style="padding: 0px;"></div>
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="d-flex justify-content-center">
+					<div class="col-sm-2">
+						<p class="text-left">
+							<font class="required-star">*</font>이용약관동의
+						</p>
+					</div>
+					<div class="container" style="padding:0px;">
+							<input type="radio"
+								style="width: 30px; height: 30px; border: 1px;">전체 동의합니다.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<button type="submit"  class="btn btn-outline-warning btn-lg"
+			style="margin: 10px;">가게 등록</button>
+		<button type="button" class="btn btn-warning btn-lg">목록으로</button>
+	</div>
+	</form>
+	<jsp:include page="../include/footer.jsp"></jsp:include>
+</body>
+<script
+	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
 								function sample6_execDaumPostcode() {
 									new daum.Postcode(
 											{
@@ -148,63 +208,4 @@
 											}).open();
 								}
 							</script>
-							<p>
-								<input type="text" class="form-control text-center"
-									id="exampleFormControlInput1" placeholder="업종"
-									style="width: 500px">
-							</p>
-							<p>
-								<input type="text" name="sdt" class="text-center"
-									id="exampleFormControlInput1" placeholder="영업시간"
-									style="width: 250px"> ~
-									<input type="text" name="edt" class="text-center"
-                  id="exampleFormControlInput1" placeholder="영업시간"
-                  style="width: 250px">
-							</p>
-							<p>
-								<input type="text" class="form-control text-center"
-									id="exampleFormControlInput1" placeholder="대표상품"
-									style="width: 500px">
-							</p>
-							<p>
-								<input type="file" style="width: 500px">
-							</p>
-							<p>
-								<textarea name="sint" class="form-control text-center"
-									id="exampleFormControlInput1" placeholder="가게소개"
-									style="width: 500px"></textarea>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	<div class="container_1" style="padding: 0px;"></div>
-	<div class="container mt-5">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="d-flex justify-content-center">
-					<div class="col-sm-2">
-						<p class="text-left">
-							<font class="required-star">*</font>이용약관동의
-						</p>
-					</div>
-					<div class="container" style="padding:0px;">
-							<input type="radio"
-								style="width: 30px; height: 30px; border: 1px;">전체 동의합니다.
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div>
-		<button onClick="location.href='add'" type="submit"  class="btn btn-outline-warning btn-lg"
-			style="margin: 10px;">가게 등록</button>
-		<button type="button" class="btn btn-warning btn-lg">목록으로</button>
-	</div>
-	</form>
-	<jsp:include page="../include/footer.jsp"></jsp:include>
-</body>
-<script
-	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </html>

@@ -23,4 +23,15 @@ public class DefaultNoticeService implements NoticeService {
 		List<Notice> list = noticeDao.findAll();
 		return list;
 	}
+
+	@Override
+	public void add(Notice notice) throws Exception {
+		noticeDao.add(notice);
+	}
+
+	@Override
+	public Notice get(int nno) throws Exception {
+		Notice notice = noticeDao.findByNo(nno);
+		return notice;
+	}
 }

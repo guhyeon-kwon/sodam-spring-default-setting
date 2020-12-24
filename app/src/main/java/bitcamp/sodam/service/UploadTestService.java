@@ -19,7 +19,7 @@ import bitcamp.sodam.dao.UserDao;
 @PropertySource("/WEB-INF/properties/config.properties")
 public class UploadTestService {
 
-	@Value("${path.img.guhyeon}")
+	@Value("${path.img}")
 	private String path;
 
 	@Autowired
