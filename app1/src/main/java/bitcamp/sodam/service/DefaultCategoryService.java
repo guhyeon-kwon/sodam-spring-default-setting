@@ -40,10 +40,5 @@ public class DefaultCategoryService implements CategoryService {
 		categoryDao.update(category);
 		
 	}
-
-	@Override
-	public List<Category> list(int sno) throws Exception {
-		return categoryDao.findByNo(sno);
-	}
 	
 }

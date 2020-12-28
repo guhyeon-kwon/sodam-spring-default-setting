@@ -13,7 +13,7 @@ public class User {
 	private String addr;
 	private String det_addr;
 	private String tel;
-	private String birth;
+	private Date birth;
 	private int status;
 	private int auth;
 	private String uphoto;
@@ -68,10 +68,10 @@ public class User {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public String getBirth() {
+	public Date getBirth() {
 		return birth;
 	}
-	public void setBirth(String birth) {
+	public void setBirth(Date birth) {
 		this.birth = birth;
 	}
 	public int getStatus() {
@@ -110,8 +110,7 @@ public class User {
 	public void setRdt(Date rdt) {
 		this.rdt = rdt;
 	}
-	
-	
+
 	
 	
 }

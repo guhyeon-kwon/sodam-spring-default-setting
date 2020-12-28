@@ -23,12 +23,6 @@ dependencies {
     
     implementation 'org.apache.logging.log4j:log4j-core:2.14.0'
     
-    implementation 'org.apache.tiles:tiles-jsp:3.0.8'
-	implementation 'org.apache.tiles:tiles-servlet:3.0.8'
-	implementation 'org.apache.tiles:tiles-core:3.0.8'
-	implementation 'org.apache.tiles:tiles-api:3.0.8'
-	implementation 'org.apache.tiles:tiles-el:3.0.8'
-    
     compile group: 'org.mybatis', name: 'mybatis-spring', version: '2.0.5'
 
     // https://mvnrepository.com/artifact/javax.servlet/jstl
