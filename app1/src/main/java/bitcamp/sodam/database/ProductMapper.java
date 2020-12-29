@@ -8,13 +8,20 @@ import org.apache.ibatis.annotations.Update;
 import bitcamp.sodam.beans.Product;
 
 public interface ProductMapper {
-	@Select("select p.pno, s.sno, s.sname ,pname, price, stock, photo, pint, pcdt "
-			+ "from tmk_product p"
-			+ "join tmk_store_info s on p.sno = s.sno"
-			+ "where s.sname like concat('%', #{keyword}, '%')"
-			+ "order by"
+	@Select("select p.pno, s.sno, s.sname ,pname, price, stock, p.photo, pint, pcdt "
+			+ "from tmk_product p "
+			+ "join tmk_store_info s on p.sno = s.sno "
+			+ "where s.sname like concat('%', #{keyword}, '%') "
+			+ "order by "
 			+ "p.pno asc")
 	List<Product> findAll(String keyword);
+
+	@Select("select p.pno, s.sno, s.sname ,pname, price, stock, p.photo, pint, pcdt "
+        + "from tmk_product p "
+        + "join tmk_store_info s on p.sno = s.sno "
+        + "order by "
+        + "p.pno asc")
+	List<Product> findAllNull();
 
 
 	@Select("select pno, pname, p.sno, price, stock, photo, pint, pcdt"
