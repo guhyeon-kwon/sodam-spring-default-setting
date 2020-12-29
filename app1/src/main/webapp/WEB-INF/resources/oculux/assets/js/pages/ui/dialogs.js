@@ -40,10 +40,6 @@ $(function () {
 			var name = $(this).attr('data-name');
             showCategoryUpdate(id, name);
         }
-		else if (type === 'userDelete') {
-			var value = $(this).attr('value');
-            showUserDeletelMessage(value);
-        }
     });
 });
 
@@ -218,30 +214,5 @@ function showCategoryUpdate(id, name) {
 		});
 		
         swal("수정되었습니다!", "변경전 -> " + name + " | 변경후 -> " + inputValue, "success");
-    });
-}
-
-function showUserDeletelMessage(value) {
-    swal({
-        title: "정말 삭제할까요?",
-        text: "한번 삭제하면 복구할 수 없습니다!",
-        type: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#dc3545",
-        confirmButtonText: "네",
-        cancelButtonText: "아니요",
-        closeOnConfirm: false,
-        closeOnCancel: true
-    }, function (isConfirm) {
-        if (isConfirm) {
-	
-			$.post("/admin/user_delete", 
-			{
-			    no:value
-			});
-	
-			
-            swal("삭제 되었습니다!", "", "success");
-        }
     });
 }

@@ -33,11 +33,6 @@ body .tag-font{
 	font-size:1px;
 	font-weight:bolder;
 }
-
-.required-star {
-	color:red;
-	font-weight:bolder;
-}
 /* 카테고리 */
 
 .category{
