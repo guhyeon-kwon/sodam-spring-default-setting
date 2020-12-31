@@ -25,23 +25,55 @@ public class ProductController {
     return "product/product_detail";
   }
 
-  @GetMapping("/product_list")
-  public String ProductList(HttpServletResponse response) {
-
-    response.setContentType("text/html; charset=UTF-8");
-
-    return "product/product_list";
-  }
-
+  // @GetMapping("/product_list")
+  // public String ProductList(HttpServletResponse response) {
+  //
+  // response.setContentType("text/html; charset=UTF-8");
+  //
+  // return "product/product_list";
+  // }
+  //
+  //
+  // @GetMapping("/product_list1")
+  // public String ProductList(HttpServletRequest request, HttpServletResponse response, Model
+  // model) {
+  //
+  // response.setContentType("text/html; charset=UTF-8");
+  //
+  // String keyword = request.getParameter("keyword");
+  //
+  // if (keyword == null) {
+  // try {
+  // List<Product> list = productService.list();
+  // model.addAttribute("list", list);
+  // } catch (Exception e) {
+  // model.addAttribute("list", null);
+  // e.printStackTrace();
+  // }
+  // } else {
+  // try {
+  // List<Product> list = productService.list(keyword);
+  // model.addAttribute("list", list);
+  // } catch (Exception e) {
+  // model.addAttribute("list", null);
+  // e.printStackTrace();
+  // }
+  // }
+  //
+  // return "product/product_list1";
+  // }
 
   @GetMapping("/product_list1")
-  public String ProductList(HttpServletRequest request, HttpServletResponse response, Model model) {
+  public String ProductList(HttpServletRequest request, HttpServletResponse response, Model model,
+      Product product) {
 
     response.setContentType("text/html; charset=UTF-8");
+    response.setCharacterEncoding("UTF-8"); // 응답의 encoding을 utf-8로 변경
 
+    String sno = request.getParameter("sno");
     String keyword = request.getParameter("keyword");
 
-    if (keyword == null) {
+    if (keyword == null && sno == null) {
       try {
         List<Product> list = productService.list();
         model.addAttribute("list", list);
@@ -49,6 +81,15 @@ public class ProductController {
         model.addAttribute("list", null);
         e.printStackTrace();
       }
+    } else if (keyword == null && sno != null) {
+      try {
+        List<Product> list = productService.list(Integer.parseInt(sno));
+        model.addAttribute("list", list);
+      } catch (Exception e) {
+        model.addAttribute("list", null);
+        e.printStackTrace();
+      }
+
     } else {
       try {
         List<Product> list = productService.list(keyword);
@@ -62,11 +103,23 @@ public class ProductController {
     return "product/product_list1";
   }
 
+
   @PostMapping("add")
   public String ProductAdd(Product product, HttpServletRequest request) {
     System.out.println("상품 추가");
     try {
       productService.add(product);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return "redirect:/product/product_list1";
+  }
+
+  @GetMapping("delete")
+  public String ProductDelete(HttpServletRequest request) {
+    System.out.println("상품 삭제");
+    try {
+      productService.delete(Integer.parseInt(request.getParameter("no")));
     } catch (Exception e) {
       e.printStackTrace();
     }

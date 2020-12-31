@@ -34,6 +34,9 @@
 											<p class="card-text"
 												style="padding-top: 6px; font-weight: 700; font-size: 16px; line-height: 20px;">${item.price}</p>
 											<button type="button" class="btn btn-outline-primary">장바구니</button>
+											<button type="button" class="btn btn-outline-primary"
+                    onclick="location.href='delete?no={pno}'">삭제</button>
+                    <a href='delete?no={pno}'>[삭제]</a>
 										</div>
 									</div>
 								</div>
